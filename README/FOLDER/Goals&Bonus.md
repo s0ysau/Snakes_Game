@@ -9,7 +9,7 @@ GOALS
 
 
 
-BONUS
+BONUS (once base game is completed and if there is extra time)
 
 1. Make a stage that look like the Nokia game
 2. Snakes on a plane level? 
