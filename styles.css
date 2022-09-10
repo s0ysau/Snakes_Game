@@ -20,7 +20,14 @@ body {
     justify-content: center;
 }
 
+.main {
+    display: grid;
+    grid-template-columns: 100px auto auto;
+    grid-gap: 80px;
+}
+
 .gameboard {
+
     width: 500px;
     height: 500px;
     margin: 0 auto;
@@ -46,3 +53,4 @@ body {
     background: red;
     border-radius: 20px;
 }
+

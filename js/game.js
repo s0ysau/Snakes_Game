@@ -40,7 +40,7 @@ function createBoard () {
 function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
     direction = 1;
-    scoreBoard.innerHTML = `<p>Score: ${score}</p>`;
+    scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
     intervalTime = 500;
     snake = [2, 1, 0]
     currentIndex = 0
