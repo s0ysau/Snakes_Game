@@ -1,5 +1,13 @@
 body {
-    background: lightgray;
+    background: darkolivegreen;
+}
+
+.headline {
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
 }
 
 .gameboard {
@@ -11,29 +19,6 @@ body {
     background-color: lightgreen;
     border: 3px white solid;
     box-shadow: 5px 5px 30px 10px;
-}
-
-.gameboard div {
-    width: 20px;
-    height: 20px;
-    /*border:1px black solid;
-    box-sizing:border-box*/
-}
-
-.headline {
-    text-align: center;
-}
-
-.popup {
-    background: rgb(32, 31, 31);
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    top: 100px;
-    left: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .snake {
