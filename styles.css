@@ -32,15 +32,17 @@ body {
 }
 
 .gameboard div {
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
 }
 
 .snake {
-background: black;
+    background: black;
+    border-radius: 20%;
+
 }
 
 .apple {
-background: red;
-border-radius: 20px;
+    background: red;
+    border-radius: 20px;
 }
