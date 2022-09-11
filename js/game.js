@@ -13,6 +13,7 @@ let snake = [2, 1, 0];
 let yAxis = 10; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
+let increaseSpeed = 0.8 // <--- Adds speed everytime an apple is eaten
 
 let snakeSpeedtime = 0 // <--- speed snake moves
 
@@ -43,7 +44,7 @@ function startGame (){
     placingApples(squares)
     direction = 1;
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
-    snakeSpeedtime = 200;
+    snakeSpeedtime = 300;
     snake = [2, 1, 0]
     currentIndex = 0
     snake.forEach((index) => squares[index].classList.add('snake'))
@@ -59,21 +60,38 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     }
 }
 
-
-function placingApples (squares) {
-    appleIndex = Math.floor(Math.random() * squares.length)
-    let occupied = squares[appleIndex]
-    occupied.classList.add('apple')
-}
-
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
     let tail = snake.pop()
     squares[tail].classList.remove('snake')
     snake.unshift(snake[0] + direction)
-    // eat apple function
+    eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
 } 
+
+function eatingApple (squares, tail){
+    if (squares[snake[0]].classList.contains('apple')){
+        squares[snake[0]].classList.remove('apple')
+        squares[tail].classList.add('snake')
+        snake.push(tail)
+        placingApples(squares)
+        score++
+        scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
+    }
+}
+
+
+function placingApples (squares) {
+    appleIndex = Math.floor(Math.random() * squares.length)
+    let occupied = squares[appleIndex]
+    if (occupied.classList.contains('snake')){
+        return
+    } else {
+        occupied.classList.add('apple')
+    }
+}
+
+
 
 // == Buttons and KeyStrokes == //
 function controls (evt) {
