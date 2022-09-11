@@ -14,7 +14,7 @@ let yAxis = 10; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
 let increaseSpeed = 0.8 // <--- Adds speed everytime an apple is eaten
-
+let newInterval = 0 // <--- Sets new interval after eating apple
 let snakeSpeedtime = 0 // <--- speed snake moves
 
 // == Buttons == //
@@ -44,21 +44,28 @@ function startGame (){
     placingApples(squares)
     direction = 1;
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
-    snakeSpeedtime = 300;
+    snakeSpeedtime = 500;
     snake = [2, 1, 0]
-    currentIndex = 0
     snake.forEach((index) => squares[index].classList.add('snake'))
-    interval = setInterval(snakeMove, snakeSpeedtime)
+    interval = setInterval(/*triggers*/ snakeMove, snakeSpeedtime)
 }
 
-function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
-    let squares = document.querySelectorAll('.gameboard div')
-    if (snake[0] === snake[index]){
-        alert('you bit yourself')
-    } else {
-        snakeMove(squares)
-    }
-}
+// function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
+//     let squares = document.querySelectorAll('.gameboard div')
+//     if (loseConditions(squares)){
+//         alert('you bit yourself')
+//     } else {
+//         snakeMove(squares)
+//     }
+// }
+
+// function loseConditions (squares){ 
+//     if ((squares[snake[0] + direction].classList.contains('snakes'))){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
@@ -77,6 +84,10 @@ function eatingApple (squares, tail){
         placingApples(squares)
         score++
         scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
+        // <= increase speed for every apple eaten => //
+        clearInterval(interval)
+        snakeSpeedtime = snakeSpeedtime * increaseSpeed
+        interval = setInterval(/*triggers*/ snakeMove, snakeSpeedtime)
     }
 }
 
@@ -85,7 +96,7 @@ function placingApples (squares) {
     appleIndex = Math.floor(Math.random() * squares.length)
     let occupied = squares[appleIndex]
     if (occupied.classList.contains('snake')){
-        return
+        return placingApples(squares)
     } else {
         occupied.classList.add('apple')
     }
