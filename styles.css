@@ -51,6 +51,10 @@ body {
 
 .apple {
     background: red;
-    border-radius: 20px;
+    border-radius: 50px;
 }
 
+.popup {
+    display: none;
+    background-color: black;
+}

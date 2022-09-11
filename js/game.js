@@ -10,17 +10,18 @@ const playAgain = document.querySelector('.playAgain')
 let currentIndex = 0;
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
-let width = 10; // <--- Horizontal
+let yAxis = 10; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
 
-let snakeSpeedtime = 0
+let snakeSpeedtime = 0 // <--- speed snake moves
 
 // == Buttons == //
 const up = document.getElementById('top')
 const down = document.getElementById('bottom')
 const right = document.getElementById('right')
 const left = document.getElementById('left')
+
 // == Buttons == //
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -39,22 +40,30 @@ function createBoard () {
 
 function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
+    placingApples(squares)
     direction = 1;
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
-    intervalTime = 500;
+    snakeSpeedtime = 200;
     snake = [2, 1, 0]
     currentIndex = 0
     snake.forEach((index) => squares[index].classList.add('snake'))
-    interval = setInterval (snakeMove, intervalTime)
+    interval = setInterval(snakeMove, snakeSpeedtime)
 }
 
-function onTheMove () {
+function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    if (snake[0] <= 100){
+    if (snake[0] === snake[index]){
         alert('you bit yourself')
     } else {
         snakeMove(squares)
     }
+}
+
+
+function placingApples (squares) {
+    appleIndex = Math.floor(Math.random() * squares.length)
+    let occupied = squares[appleIndex]
+    occupied.classList.add('apple')
 }
 
 function snakeMove () {
@@ -64,16 +73,42 @@ function snakeMove () {
     snake.unshift(snake[0] + direction)
     // eat apple function
     squares[snake[0]].classList.add('snake')
-}
+} 
 
+// == Buttons and KeyStrokes == //
 function controls (evt) {
     if (evt.keycode === 39) {
         direction = 1 // right
     } else if (evt.keycode === 38) {
-        direction = -width // up
+        direction = -yAxis // up
     } else if (evt.keycode === 37) {
         direction = -1 // left
     } else if (evt.keycode === 40 ) {
-        direction = + width //down
+        direction = + yAxis //down
     }
+}
+
+document.addEventListener('keypress', (evt) => {
+    if (evt.keycode === 39) {
+        direction = 1 // right
+    } else if (evt.keycode === 38) {
+        direction = -yAxis // up
+    } else if (evt.keycode === 37) {
+        direction = -1 // left
+    } else if (evt.keycode === 40n) {
+        direction = +yAxis //down
+    }
+})
+
+up.addEventListener("click", () => (direction = -yAxis));
+bottom.addEventListener("click", () => (direction = +yAxis));
+left.addEventListener("click", () => (direction = -1));
+right.addEventListener("click", () => (direction = 1));
+// == Buttons and KeyStrokes == //
+
+const replay = () => {
+    gameBoard.innerHTML = ''
+    createBoard()
+    startGame ()
+    popUp.style.display = 'none'
 }
