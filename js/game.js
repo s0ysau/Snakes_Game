@@ -60,6 +60,7 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
 
 function bitingItself (squares){ 
     if ((squares[snake[0] + direction].classList.contains('snake'))){
+        clearInterval(interval)
         return true
     } else {
         return false
@@ -123,6 +124,10 @@ up.addEventListener("click", () => (direction = -yAxis));
 bottom.addEventListener("click", () => (direction = +yAxis));
 left.addEventListener("click", () => (direction = -1));
 right.addEventListener("click", () => (direction = 1));
+
+playAgain.addEventListener('click', () => {
+    replay()
+})
 // == Buttons and KeyStrokes == //
 
 const replay = () => {

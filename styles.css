@@ -46,7 +46,7 @@ body {
 .snake {
     background: black;
     border-radius: 20%;
-
+    animation: moving 8ms infinite;
 }
 
 .apple {
@@ -57,4 +57,15 @@ body {
 .popup {
     display: none;
     background-color: black;
+}
+
+@keyframes moving {
+    0%{
+        left: 0;
+        background: black;
+    } 
+    100% {
+        left: 100%;
+        background: black;
+    }   
 }
