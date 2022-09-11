@@ -50,7 +50,7 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    if (loseConditions(squares)){
+    if (bitingItself(squares)){
         alert('you hit something')
         popUp.style.display = 'block'
     } else {
@@ -58,13 +58,17 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     }
 }
 
-function loseConditions (squares){ 
-    if ((squares[snake[0] + direction].classList.contains('snakes'))){
+function bitingItself (squares){ 
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
         return true
     } else {
         return false
     }
 }
+
+// function hittingTheWall () {
+
+// }
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
