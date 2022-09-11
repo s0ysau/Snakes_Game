@@ -7,13 +7,12 @@ const popUp = document.querySelector('.popup')
 const playAgain = document.querySelector('.playAgain')
 
 
-let currentIndex = 0;
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
 let yAxis = 10; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
-let increaseSpeed = 0.8 // <--- Adds speed everytime an apple is eaten
+let increaseSpeed = 0.9 // <--- Adds speed everytime an apple is eaten
 let snakeSpeedtime = 0 // <--- speed snake moves
 
 // == Buttons == //
@@ -103,15 +102,15 @@ function placingApples (squares) {
 }
 
 // == Buttons and KeyStrokes == //
-window.addEventListener('keyup', (evt) => {
+window.addEventListener('keydown', (evt) => {
     console.log(evt)
-    if (evt.code === 'ArrowRight') {
+    if (evt.code === 'ArrowRight' || evt.code === 'KeyD') {
         direction = 1 // right
-    } else if (evt.code === 'ArrowUp') {
+    } else if (evt.code === 'ArrowUp' || evt.code === 'KeyW') {
         direction = -yAxis // up
-    } else if (evt.code === 'ArrowLeft') {
+    } else if (evt.code === 'ArrowLeft' || evt.code === 'KeyA') {
         direction = -1 // left
-    } else if (evt.code === 'ArrowDown') {
+    } else if (evt.code === 'ArrowDown' || evt.code === "KeyS") {
         direction = + yAxis //down
     } 
 })
