@@ -6,13 +6,20 @@ const gameBoard = document.querySelector('.gameboard')
 const popUp = document.querySelector('.popup')
 const playAgain = document.querySelector('.playAgain')
 
+class options {
+    constructor(increaseSpeed,snakeSpeedtime){
+        this.increaseSpeed = increaseSpeed // <--- Adds speed everytime an apple is eaten
+        this.snakeSpeedtime = snakeSpeedtime // <--- speed snake moves
+    }
+}
+
+const testingMode = new options (0.9, 500)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
 let yAxis = 10; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
-let increaseSpeed = 0.9 // <--- Adds speed everytime an apple is eaten
 let snakeSpeedtime = 0 // <--- speed snake moves
 
 // == Buttons == //
@@ -42,9 +49,9 @@ function startGame (){
     placingApples(squares)
     direction = 1;
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
-    snakeSpeedtime = 500;
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
+    snakeSpeedtime = testingMode.snakeSpeedtime
     interval = setInterval(triggers /*snakeMove*/, snakeSpeedtime)
 }
 
@@ -90,7 +97,7 @@ function eatingApple (squares, tail){
         scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
-        snakeSpeedtime = snakeSpeedtime * increaseSpeed
+        snakeSpeedtime = snakeSpeedtime * testingMode.increaseSpeed ;
         interval = setInterval(triggers /*snakeMove*/, snakeSpeedtime)
     }
 }
