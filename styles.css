@@ -15,26 +15,13 @@ body {
     vertical-align: middle;
     padding: 5px;
     text-align: center;
-    height: 225px;
+    margin: 10px 10px;
+    height: 440px;
+    font-size: 4em;
 }
-
-.buttons {
-    margin: 0 auto;
-    margin-top: 10px;
-    width: 70px;
-    text-align: center;
-}
-
-.left-right {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
 
 .gameboard {
     width: 100vmin;
-    height: 100vmin;
     background-color: lightgreen;
     border: 3px gray solid;
     box-shadow: 5px 5px 30px 10px;
@@ -52,6 +39,29 @@ body {
 .apple {
     background: red;
     border-radius: 50px;
+}
+
+.display{
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.scoreNm {
+    font-size: 40px;
+}
+
+.buttons {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 70px;
+    text-align: center;
+}
+
+.left-right {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .popup {

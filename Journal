@@ -5,6 +5,8 @@ Sept 11 -
 
 Sept 12 - 
     Found a way to make the gameboard bigger by using display: grid.
-        - BUG: vertical movement completely messed up. 
+        - BUG: vertical movement completely messed up. Fixed
 
-    BUG: Realize that the using the arrow keys also moves the page. 
+    BUG: Realize that the using the arrow keys also moves the page. Fixed
+
+    Changed the size of the gameboard
