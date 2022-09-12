@@ -17,7 +17,7 @@ const testingMode = new options (0.9, 500)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
-let yAxis = 10; // <--- Vertical
+let yAxis = 20; // <--- Vertical
 let direction = 1; // <--- amount snake can move at an interval
 let score = 0;
 let snakeSpeedtime = 0 // <--- speed snake moves
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===== Functions ===== //
 function createBoard () {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 400; i++) {
         popUp.style.display= 'none'
         let div = document.createElement('div')
         gameBoard.appendChild(div);
@@ -58,7 +58,7 @@ function startGame (){
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
     if (bitingItself(squares)){
-        alert('you hit something')
+        alert('You bit yourself!')
         popUp.style.display = 'block'
     } else {
         snakeMove(squares)

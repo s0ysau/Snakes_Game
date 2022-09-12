@@ -1,1 +1,10 @@
-Sept 10 -
+Sept 11 - 
+    BUG: Apple still appears within snake array. Happens about every 7 games or so.
+
+    Gameplay speed seems fine. 
+
+Sept 12 - 
+    Found a way to make the gameboard bigger by using display: grid.
+        - BUG: vertical movement completely messed up. 
+
+    BUG: Realize that the using the arrow keys also moves the page. 
