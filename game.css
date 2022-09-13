@@ -91,3 +91,7 @@ body {
         background: black;
     }   
 }
+
+.tail{
+    border-radius: 50%;
+}
