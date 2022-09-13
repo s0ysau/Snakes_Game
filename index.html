@@ -9,17 +9,46 @@
 </head>
     <script defer src="js/game.js"></script>
 <body>
-    <h1 class="headline">S<br/>N<br/>A<br/>K<br/>E<br/>S<br/></h1>
-    <div class="gameboard"></div>
-    <section class="display">
-        <div class="scoreboard"></div>
-        <div class="highscore">
-            <h2>High Scores:</h2>
+    <section id="main-menu">
+        <div id="modal-text">
+            <h1>Welcome To Snakes!</h1>
+                <div class="right-side">
+                    <h3>
+                        How to Play:
+                    </h3>
+                    <h4>
+                        You can use Arrow Keys or WASD to move
+                    </h4>
+                    <img src="images/WASD.jpeg" class="wasd">
+                    <img src="images/arrow_keys.png" class="arrowkeys">
+                </div>
+                <div class="left-side">
+                    <h3>
+                        Move the snake around and get those apples!! 
+                    </h3>
+                </div>
         </div>
+        <button id="starting-game">Start Game</button>
     </section>
+    <!-- <div id="game-screen"> -->
+        <h1 class="headline">S<br/>N<br/>A<br/>K<br/>E<br/>S<br/></h1>
+        <div class="gameboard"></div>
+        <section class="display">
+            <div class="scoreboard"></div>
+            <div class="high_score_section">
+                <h2>High Scores:</h2>
+                    <ol class="high_score_list"></ol>
+            </div>
+        </section>
+    <!-- </div> -->
     <div class="popup">
-        <h1 class="finalScore-1"></h1>
-        <h2 class="finalScore-2"></h2>
+        <h1 class="game_over_text"></h1>
+        <h2 class="finalScore"></h2>
+        <section class="high_score_menu">
+            <h2>You made it onto the High Scores List, Enter your name</h2>
+            <input type="text" id="playerName" placeholder="Enter your name">
+            <button class="submitHS">Submit</button>
+        </section>
         <button class="playAgain">Play Again</button>
     </div>
 </body>

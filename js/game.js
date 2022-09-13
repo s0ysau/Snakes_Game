@@ -4,26 +4,22 @@ console.log('ah snakes!')
 const scoreBoard = document.querySelector('.scoreboard')
 const gameBoard = document.querySelector('.gameboard')
 
-
+const tailLook = document.querySelector('.tail')
+const gameScreen = document.getElementById('game-screen')
 // == Game Over Variables == //
 const popUp = document.querySelector('.popup')
-const finalScore1 = document.querySelector('.finalScore-1')
-const finalScore2 = document.querySelector('.finalScore-2')
+const game_over_text = document.querySelector('.game_over_text')
+const finalScore = document.querySelector('.finalScore')
 const playAgain = document.querySelector('.playAgain')
+const submit = document.querySelector('.submitHS')
 // == Game Over Variables == //
-
-const tailLook = document.querySelector('.tail')
-
-
-/*
-const liOFHighScore = 10;
-const HIGH_SCORES= 'highScores';
-const highScoreString = localStorage.getItem(HIGH_SCORES);
-const highScores = JSON.parse(highScoreString) ?? [];
-const lowestScore = highScore[liOFHighScore]
-*/
+// == Modal / Main Menu Variables == //
+const mainMenu = document.getElementById('main-menu')
+const startGameBtn = document.getElementById('starting-game')
+// == Modal / Main Menu Variables == //
 
 
+// ===== Global Variables ===== //
 // ===== Classes =====//
 
 class options {
@@ -32,9 +28,9 @@ class options {
         this.snakeSpeedtime = snakeSpeedtime // <--- speed snake moves
     }
 }
-
+//(1, 85)
 const testingMode = new options (0.8, 470)
-const constantSpeed = new options (1, 85)
+const regularMode = new options (100000,100000)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
@@ -47,14 +43,32 @@ let snakeSpeedtime = 0 // <--- speed snake moves
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    openMainMenu ()
+    // createBoard()
+    // startGame()
+    // showHighScores()
+})
+
+// ===== Modal ===== //
+
+const openMainMenu = () => {
+    mainMenu.style.display = 'block'
+}
+
+startGameBtn.addEventListener('click', () => {   
+    mainMenu.style.display = 'none'
+    // gameScreen.style.visibility = 'visible'
     createBoard()
     startGame()
 })
 
+// ===== Modal ===== //
+
 // ===== Functions ===== //
+
+
 function createBoard () {
     for (let i = 0; i < 400; i++) {
-        popUp.style.display= 'none'
         let div = document.createElement('div')
         gameBoard.appendChild(div);
     }
@@ -67,7 +81,7 @@ function startGame (){
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
-    snakeSpeedtime =constantSpeed.snakeSpeedtime
+    snakeSpeedtime =regularMode.snakeSpeedtime
     interval = setInterval(triggers, snakeSpeedtime)
 }
 
@@ -106,7 +120,7 @@ function eatingApple (squares, tail){
         scoreBoard.innerHTML = `<h2 class="score">Score: <span class="scoreNm">${score}</span></h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
-        snakeSpeedtime = snakeSpeedtime * constantSpeed.increaseSpeed ;
+        snakeSpeedtime = snakeSpeedtime * regularMode.increaseSpeed ;
         interval = setInterval(triggers, snakeSpeedtime)
     }
 }
@@ -140,13 +154,16 @@ playAgain.addEventListener('click', () => {
     replay()
 })
 
+
 // == Buttons and KeyStrokes == //
+
 
 function gameOver () {
     clearInterval(interval)
     popUp.style.display = 'flex'
-    finalScore1.innerText = `GAME OVER`
-    finalScore2.innerText = `YOUR SCORE ${score}`
+    game_over_text.innerText = `GAME OVER`
+    finalScore.innerText = `YOUR SCORE ${score}`
+    // checkScore (score)
 }
 
 const replay = () => {
@@ -156,6 +173,56 @@ const replay = () => {
     startGame ()
     popUp.style.display = 'none'
 }
+
+
+// === High Score Section === //
+// const highScoreMenu = document.querySelector('.high_score_menu')
+// const highScoreList = document.querySelector('.high_score_list')
+
+// const liOFHighScore = 10; //<-list of HS
+// const highScoreString = localStorage.getItem(highScoreList); 
+// const highScores = ' ' //<-parse string from local storage
+// const lowestScore = ' '//<- check for high score
+
+// let playerName = document.getElementById('playerName')
+
+// === High Score Section === //
+
+
+// function checkScore (score){
+//     const highScores = JSON.parse(highScoreString) ?? []; //<-parse string from local storage
+//     const lowestScore = highScores[liOFHighScore-1]?.score ?? 0 //<- check for high score
+//     let nameAndScoreEntry = {playerName, score}
+//     if (score > lowestScore){
+//         highScoreMenu.style.visibility = 'visible'
+//         submit.addEventListener('click', () => {
+//             nameAndScoreEntry.playerName = playerName
+//         })         
+//         highScores.push(nameAndScoreEntry)
+//         highScores.sort((a,b) => b.score - a.score)
+//         highScores.splice(liOFHighScore)
+//         localStorage.setItem(highScoreString, JSON.stringify(highScores))
+//     }
+//     showHighScores(highScores)
+// }
+
+// function showHighScores (highScores) {
+//     const highScoreString = localStorage.getItem(highScoreList); 
+//     highScoreList.innerHTML = highScores
+//     .map((score) => `<li>${score.score} - ${score.name}</li>`)
+//     .join('');
+// }
+
+// function pause (){
+//     window.addEventListener('keydown', (evt) => {
+//         if (evt.code === "Space"){
+//             setTimeout(interval)
+//         } if ((evt.code === "Space"))
+//             interval (triggers, snakeSpeedtime)
+//     })
+// }
+
+// pause()
 
 
 

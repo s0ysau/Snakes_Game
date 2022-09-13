@@ -20,27 +20,6 @@ body {
     font-size: 4em;
 }
 
-.gameboard {
-    width: 100vmin;
-    background-color: lightgreen;
-    border: 3px gray solid;
-    box-shadow: 5px 5px 30px 10px;
-    display: grid;
-    grid-template-rows: repeat(20, 1fr);
-    grid-template-columns: repeat(20, 1fr)
-}
-
-.snake {
-    background: black;
-    border-radius: 20%;
-    animation: moving 8ms infinite;
-}
-
-.apple {
-    background: red;
-    border-radius: 50px;
-}
-
 .display{
     flex-wrap: wrap;
     padding: 5px;
@@ -72,13 +51,17 @@ body {
     position: absolute;
     flex-direction: column;
 }
-.finalScore-1, .finalScore-2 {
+.game_over_text, .finalScore {
     color: white;
     text-align: center;
 }
 
 .playAgain {
     margin: auto;
+}
+
+.game_over_text {
+    font-size: 4em;
 }
 
 @keyframes moving {
@@ -94,4 +77,42 @@ body {
 
 .tail{
     border-radius: 50%;
+}
+
+.high_score_menu {
+    visibility: hidden;
+}
+
+#main-menu{
+    display: none;
+}
+
+/* #game-screen {
+    visibility: hidden;
+} */
+
+.gameboard {
+    width: 100vmin;
+    background-color: lightgreen;
+    border: 3px gray solid;
+    box-shadow: 5px 5px 30px 10px;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr)
+}
+
+.snake {
+    background: black;
+    border-radius: 20%;
+    animation: moving 8ms infinite;
+}
+
+.apple {
+    background: red;
+    border-radius: 50px;
+}
+
+.wasd {
+    width: 50%;
+    height: 50%;
 }
