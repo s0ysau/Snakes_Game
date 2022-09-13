@@ -4,7 +4,11 @@ console.log('ah snakes!')
 const scoreBoard = document.querySelector('.scoreboard')
 const gameBoard = document.querySelector('.gameboard')
 const popUp = document.querySelector('.popup')
+const finalScore1 = document.querySelector('.finalScore-1')
+const finalScore2 = document.querySelector('.finalScore-2')
 const playAgain = document.querySelector('.playAgain')
+
+
 
 class options {
     constructor(increaseSpeed,snakeSpeedtime){
@@ -53,56 +57,26 @@ function startGame (){
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
     snakeSpeedtime = testingMode.snakeSpeedtime
-    interval = setInterval(triggers /*snakeMove*/, snakeSpeedtime)
+    interval = setInterval(triggers, snakeSpeedtime)
 }
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    // if (bitingItself(squares)){
-    //     alert('You bit yourself!')
-    //     popUp.style.display = 'block'
-    // } else if (hittingTheWall(squares)) {
-    //     alert('You Slithered into a wall!')
-    //     popUp.style.display = 'block'
-    // } else {
-    //     snakeMove(squares)
-    // }
     if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
-        alert('You slithered into a wall!')
+        alert('You slytherin to a wall!')
         clearInterval(interval)
-        popUp.style.display = 'block'
+        gameOver()
     } else if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('You bit yourself!')
         clearInterval(interval)
-        popUp.style.display = 'block'
+        gameOver()
     } else {
         snakeMove(squares)
     }
 }
-// function bitingItself (squares){ 
-//     if ((squares[snake[0] + direction].classList.contains('snake'))){
-//         clearInterval(interval)
-//         return true
-//     } else {
-//         hittingTheWall(squares)
-//     }
-// }
-
-// function hittingTheWall (squares) {
-//     if ((squares[snake[0]] - yAxis === 0 && direction === -xAxis ) || //<-- Left
-//     (squares[snake[0]] - yAxis === -1 && direction === -yAxis) || //<-- Top border
-//     (squares[snake[0]] + yAxis >= yAxis * yAxis && direction === +yAxis) || //<-- Bottom
-//     (squares[snake[0]] % yAxis === yAxis - 1 && direction === xAxis)) //<-- Right
-//     {
-//         clearInterval(interval)
-//         return true
-//     } else {
-//         return false
-//     }
-// }
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
@@ -124,10 +98,9 @@ function eatingApple (squares, tail){
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
         snakeSpeedtime = snakeSpeedtime * testingMode.increaseSpeed ;
-        interval = setInterval(triggers /*snakeMove*/, snakeSpeedtime)
+        interval = setInterval(triggers, snakeSpeedtime)
     }
 }
-
 
 function placingApples (squares) {
     appleIndex = Math.floor(Math.random() * squares.length)
@@ -161,7 +134,14 @@ window.addEventListener('keydown', (evt) => {
 playAgain.addEventListener('click', () => {
     replay()
 })
+
 // == Buttons and KeyStrokes == //
+
+function gameOver () {
+    popUp.style.display = 'flex'
+    finalScore1.innerText = `GAME OVER`
+    finalScore2.innerText = `YOUR SCORE ${score}`
+}
 
 const replay = () => {
     gameBoard.innerHTML = ''
