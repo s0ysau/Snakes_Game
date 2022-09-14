@@ -13,10 +13,8 @@ const finalScore = document.querySelector('.finalScore')
 const playAgain = document.querySelector('.playAgain')
 const submit = document.querySelector('.submitHS')
 // == Game Over Variables == //
-// == Modal / Main Menu Variables == //
-const mainMenu = document.getElementById('main-menu')
-const startGameBtn = document.getElementById('starting-game')
-// == Modal / Main Menu Variables == //
+
+
 
 let playing = true
 
@@ -38,33 +36,17 @@ let snake = [2, 1, 0]; //<--- initial snake position
 let yAxis = 20; // <--- Vertical
 let xAxis = 1; //<--- horizontal
 let direction = 1; // <--- amount snake can move at an interval
-let score = 0;
+let score = 0000;
 let snakeSpeedtime = 0 // <--- speed snake moves
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    openMainMenu ()
-    // createBoard()
-    // startGame()
+    createBoard()
+    startGame()
     // showHighScores()
 })
 
-// ===== Modal ===== //
-
-const openMainMenu = () => {
-    mainMenu.style.display = 'grid'
-}
-
-startGameBtn.addEventListener('click', () => {   
-    mainMenu.style.display = 'none'
-    gameScreen.style.display = 'flex'
-    createBoard()
-    startGame()
-    showHighScores (highScoreLists)
-})
-
-// ===== Modal ===== //
 
 // ===== Functions ===== //
 
@@ -80,7 +62,7 @@ function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
     placingApples(squares)
     direction = 1;
-    scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
+    scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
@@ -91,19 +73,28 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
-        (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
-        (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
-        (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
-        alert('You slytherin to a wall!')
-        gameOver()
-    } else if ((squares[snake[0] + direction].classList.contains('snake'))){
+    //Left
+    if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+        squares[snake[0]] = ((1 - yAxis))
+    //Top 
+    } else if (snake[0] - yAxis <= -1 && direction === -yAxis) { 
+        squares[snake[0]] = (yAxis * (yAxis - 1))
+    //Bottom
+    } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+        squares[snake[0]] = -(yAxis * (yAxis - 1))
+    //Right
+    } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
+        squares[snake[0]] = (yAxis - 1)
+    } else 
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('You bit yourself!')
         gameOver()
     } else {
         snakeMove(squares)
     }
 }
+
+
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
@@ -112,7 +103,7 @@ function snakeMove () {
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
-} 
+}
 
 function eatingApple (squares, tail){
     if (squares[snake[0]].classList.contains('apple')){
@@ -121,7 +112,7 @@ function eatingApple (squares, tail){
         snake.push(tail)
         placingApples(squares)
         score++
-        scoreBoard.innerHTML = `<h2 class="score">Score: <span class="scoreNm">${score}</span></h2>`;
+        scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
         snakeSpeedtime = snakeSpeedtime * regularMode.increaseSpeed ;
@@ -167,7 +158,6 @@ function gameOver () {
     popUp.style.display = 'flex'
     game_over_text.innerText = `GAME OVER`
     finalScore.innerText = `YOUR SCORE ${score}`
-    checkHighScore (score) 
 }
 
 function replay (){
@@ -179,85 +169,3 @@ function replay (){
 }
 
 
-
-
-
-//=== High Score Section === //
-let highScoreLists = [
-    {'name': 'testing1','score': 2},
-    {'name': 'testing2','score': 2},
-    {'name': 'testing3','score': 1},
-    {'name': 'testing4','score': 1},
-    {'name': 'testing5','score': 1},
-    {'name': 'testing6','score': 1},
-    {'name': 'testing7','score': 1},
-    {'name': 'testing8','score': 1},
-    {'name': 'testing9','score': 1},
-    {'name': 'testing10','score': 1}
-]
-
-
-// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
-
-const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
-const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
-let creatingList = document.createElement('li')
-let UserPlayerName = document.getElementById('playerName') 
-
-function checkHighScore (score) {
-    if (score !== 0) {
-        for (let i = 0; i < highScoreLists.length; i++){
-            if (score > highScoreLists[i].score){
-                highScoreMenu.style.visibility = 'visible'
-                submit.addEventListener('click', () => {
-                    playerName = UserPlayerName.value
-                    highScoreLists['name'] = playerName
-                    highScoreLists['score'] = score
-                })
-            }
-        }
-    } else {
-        return
-    }
-}
-
-function showHighScores (highScoreLists) {
-    let creatingList = document.createElement('li')
-    highScoreLists.forEach(element => {
-        highScoreListEl.appendChild(creatingList)
-        creatingList.innerHTML = element
-    })
-}
-
-
-// === High Score Section === //
-
-// function pause (){
-//     window.addEventListener('click', (evt) => {
-//         console.log(evt)
-//         if (evt.key === 'Shift' && playing === false){
-//             playing = true
-//         } else if (evt.key === 'Shift' && playing === true) {
-//             playing = false
-//         }
-//     })
-// }
-
-
-
-
-
-
-
-// <<< On-Screen Buttons >>> //
-// up.addEventListener("click", () => (direction = -yAxis));
-// bottom.addEventListener("click", () => (direction = +yAxis));
-// left.addEventListener("click", () => (direction = -1));
-// right.addEventListener("click", () => (direction = 1));
-
-// == Buttons == //
-// const up = document.getElementById('top')
-// const down = document.getElementById('bottom')
-// const right = document.getElementById('right')
-// const left = document.getElementById('left')
-// == Buttons == //

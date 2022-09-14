@@ -1,5 +1,5 @@
 body {
-    background: darkolivegreen;
+    background: rgba(178,218,8,255);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -8,17 +8,6 @@ body {
     margin: 0;
 }
 
-.headline {
-    background: rgb(12, 72, 12);
-    color: white;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 5px;
-    text-align: center;
-    margin: 10px 10px;
-    height: 440px;
-    font-size: 4em;
-}
 
 .display{
     flex-wrap: wrap;
@@ -28,6 +17,13 @@ body {
 
 .scoreNm {
     font-size: 40px;
+    margin: 10px 0;
+}
+
+.line {
+    width: 80.5vmin;
+    border: 2.5px #263702 solid;
+    margin: 10px 0;
 }
 
 .buttons {
@@ -64,7 +60,7 @@ body {
     font-size: 4em;
 }
 
-@keyframes moving {
+/* @keyframes moving {
     0%{
         right: 0;
         background: yellow;
@@ -85,7 +81,7 @@ body {
         right: 100%;
         background: darkgreen;
     }   
-}
+} */
 
 .tail{
     border-radius: 50%;
@@ -95,33 +91,23 @@ body {
     visibility: hidden;
 }
 
-#main-menu{
-    display: none;
-    text-align: center;
-}
-
-#game-screen {
-    display: none;
-}
 
 .gameboard {
-    width: 100vmin;
-    background-color: black;
-    border: 3px gray solid;
-    box-shadow: 5px 5px 30px 10px;
+    width: 80vmin;
+    height: 80vmin;
+    background-color: rgba(178,218,8,255);
+    border: 5px #263702 solid;
     display: grid;
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr)
 }
 
 .snake {
-    background: lightgreen;
+    background: #263702;
     animation: moving 2s infinite;
 }
 
 .apple {
-    background: red;
+    background: #263702;
     border-radius: 50px;
 }
-
-

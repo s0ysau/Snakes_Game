@@ -10,3 +10,6 @@ https://michael-karen.medium.com/how-to-save-high-scores-in-local-storage-7860ba
 4.
 https://codewithharry.com/videos/snake-game-in-javascript
 
+5.
+https://www.youtube.com/watch?v=HXw3Ro9_Fl0&t=195s
+
