@@ -21,12 +21,14 @@ body {
 .scoreNm {
     font-size: 40px;
     margin: 10px 0;
+    color: #263702;
 }
 
 .line {
     width: 80.5vmin;
     border: 2.5px #263702 solid;
     margin: 10px 0;
+    background-color: #263702;
 }
 
 .buttons {

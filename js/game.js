@@ -140,18 +140,28 @@ function placingApples (squares) {
 }
 
 // == Buttons and KeyStrokes == //
-window.addEventListener('keydown', (evt) => {
+window.addEventListener('keydown', keyDown)
+
+function keyDown (evt) {
     console.log(evt)
     if (evt.code === 'ArrowRight' || evt.code === 'KeyD') {
+        if(direction == -xAxis)
+            return;
         direction = xAxis // right
     } else if (evt.code === 'ArrowUp' || evt.code === 'KeyW') {
+        if(direction == yAxis)
+            return;
         direction = -yAxis // up
     } else if (evt.code === 'ArrowLeft' || evt.code === 'KeyA') {
+        if(direction == xAxis)
+            return;
         direction = -xAxis // left
     } else if (evt.code === 'ArrowDown' || evt.code === "KeyS") {
+        if(direction == -yAxis)
+            return;
         direction = yAxis //down
     } 
-})
+}
 
 
 playAgain.addEventListener('click', () => {

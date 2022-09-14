@@ -62,7 +62,7 @@ function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
     placingApples(squares)
     scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
-    snake = [2, 1, 0]
+    snake = [3, 2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
     snakeSpeedtime =regularMode.snakeSpeedtime
@@ -72,24 +72,11 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    //Left
-    if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
-        squares[snake[0]] = ((1 - yAxis))
-    //Top 
-    } else if (snake[0] - yAxis <= -1 && direction === -yAxis) { 
-        squares[snake[0]] = (yAxis * (yAxis - 1))
-    //Bottom
-    } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
-        squares[snake[0]] = -(yAxis * (yAxis - 1))
-    //Right
-    } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
-        squares[snake[0]] = (yAxis - 1)
-    } else 
     if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('You bit yourself!')
         gameOver()
     } else {
-        snakeMove(squares)
+        snakeMove()
     }
 }
 
@@ -102,6 +89,27 @@ function snakeMove () {
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
+    for (let i = 0; i < snake.length; i++){
+        // Left
+        if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+            // squares[snake[0]] == ((1 - yAxis))
+            squares[snake[i]] = +19 
+        //Top 
+        } else if (snake[0] - yAxis <= -1 && direction === -yAxis) { 
+            // squares[snake[0]] == (yAxis * (yAxis - 1))
+            squares[snake[i]] = +380
+        //Bottom
+        } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+            // squares[snake[0]] == -(yAxis * (yAxis - 1))
+            squares[snake[i]] = -380
+        //Right
+        } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
+            // squares[snake[0]] == (yAxis - 1)
+            squares[snake[i]] = -19
+        } else {
+            return
+        }
+    }
 }
 
 function eatingApple (squares, tail){
@@ -110,7 +118,7 @@ function eatingApple (squares, tail){
         squares[tail].classList.add('snake')
         snake.push(tail)
         placingApples(squares)
-        score++
+        score = score + 7
         scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
@@ -130,19 +138,28 @@ function placingApples (squares) {
 }
 
 // == Buttons and KeyStrokes == //
-window.addEventListener('keydown', (evt) => {
+window.addEventListener('keydown', keyDown)
+
+function keyDown (evt) {
     console.log(evt)
     if (evt.code === 'ArrowRight' || evt.code === 'KeyD') {
+        if(direction == -xAxis)
+            return;
         direction = xAxis // right
     } else if (evt.code === 'ArrowUp' || evt.code === 'KeyW') {
+        if(direction == yAxis)
+            return;
         direction = -yAxis // up
     } else if (evt.code === 'ArrowLeft' || evt.code === 'KeyA') {
+        if(direction == xAxis)
+            return;
         direction = -xAxis // left
     } else if (evt.code === 'ArrowDown' || evt.code === "KeyS") {
+        if(direction == -yAxis)
+            return;
         direction = yAxis //down
     } 
-})
-
+}
 
 playAgain.addEventListener('click', () => {
     replay()
