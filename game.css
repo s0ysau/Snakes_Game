@@ -66,12 +66,24 @@ body {
 
 @keyframes moving {
     0%{
-        left: 0;
-        background: black;
+        right: 0;
+        background: yellow;
     } 
+    25% {
+        right: 25%;
+        background: yellowgreen
+    }
+    50% {
+        right: 50%;
+        background: rgb(48, 222, 48);
+    }
+    75% {
+        right: 75%;
+        background: green;
+    }
     100% {
-        left: 100%;
-        background: black;
+        right: 100%;
+        background: darkgreen;
     }   
 }
 
@@ -94,7 +106,7 @@ body {
 
 .gameboard {
     width: 100vmin;
-    background-color: lightgreen;
+    background-color: black;
     border: 3px gray solid;
     box-shadow: 5px 5px 30px 10px;
     display: grid;
@@ -103,9 +115,9 @@ body {
 }
 
 .snake {
-    background: black;
-    border-radius: 20%;
-    animation: moving 8ms infinite;
+    background: lightgreen;
+    /* border-radius: 20%; */
+    animation: moving 2s infinite;
 }
 
 .apple {

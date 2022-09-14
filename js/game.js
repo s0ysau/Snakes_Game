@@ -109,6 +109,7 @@ function snakeMove () {
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
+    // pause(interval)
 } 
 
 function eatingApple (squares, tail){
@@ -229,23 +230,25 @@ function showHighScores (highScoreLists) {
 
 
 
-// function pause (){
+// function pause (interval){
 //     window.addEventListener('keydown', (evt) => {
-//         evt.code === ' '
+//         if(evt.code === 'ShiftRight' || evt.code === 'ShiftLeft'){
 //         clearInterval(interval)
+//         }
 //     })
-    
+    // unpause(interval)
 // }
 
-// function unpause () {
+
+// function unpause (interval) {
 //     window.addEventListener('keydown', (evt) => {
-//         evt.code === ' '
-//         setTimeout(interval)
-//     })
+//         if(interval = 0){
+//         } if(evt.code === 'ShiftRight' || evt.code === 'ShiftLeft'){
+//         interval = setInterval(triggers, snakeSpeedtime)   
+//     }
+// })
 // }
 
-pause()
-unpause()
 
 
 
