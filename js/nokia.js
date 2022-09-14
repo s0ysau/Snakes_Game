@@ -61,7 +61,6 @@ function createBoard () {
 function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
     placingApples(squares)
-    direction = 1;
     scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))

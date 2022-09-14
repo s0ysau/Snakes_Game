@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Press+Start+2P');
+
 body {
     background: rgba(178,218,8,255);
     height: 100vh;
@@ -6,6 +8,7 @@ body {
     justify-content: center;
     /* align-items: center; */
     margin: 0;
+    font-family: 'Press+Start+2P', monospace;
 }
 
 
@@ -60,28 +63,28 @@ body {
     font-size: 4em;
 }
 
-/* @keyframes moving {
+@keyframes moving {
     0%{
         right: 0;
-        background: yellow;
+        background: #263702;
     } 
     25% {
         right: 25%;
-        background: yellowgreen
+        background: #263702;
     }
     50% {
         right: 50%;
-        background: rgb(48, 222, 48);
+        background: #263702;
     }
     75% {
         right: 75%;
-        background: green;
+        background: #263702;
     }
     100% {
         right: 100%;
-        background: darkgreen;
+        background: #263702;
     }   
-} */
+}
 
 .tail{
     border-radius: 50%;
@@ -109,5 +112,5 @@ body {
 
 .apple {
     background: #263702;
-    border-radius: 50px;
+    border: 7.45px rgba(178,218,8,255) dashed;
 }
