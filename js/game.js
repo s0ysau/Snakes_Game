@@ -30,7 +30,7 @@ class options {
 }
 //(1, 85)
 const testingMode = new options (0.8, 470)
-const regularMode = new options (100000,100000)
+const regularMode = new options (1, 85)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0];
@@ -52,14 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===== Modal ===== //
 
 const openMainMenu = () => {
-    mainMenu.style.display = 'block'
+    mainMenu.style.display = 'grid'
 }
 
 startGameBtn.addEventListener('click', () => {   
     mainMenu.style.display = 'none'
-    // gameScreen.style.visibility = 'visible'
+    gameScreen.style.display = 'flex'
     createBoard()
     startGame()
+    showHighScores (highScoreLists)
 })
 
 // ===== Modal ===== //
@@ -163,7 +164,7 @@ function gameOver () {
     popUp.style.display = 'flex'
     game_over_text.innerText = `GAME OVER`
     finalScore.innerText = `YOUR SCORE ${score}`
-    // checkScore (score)
+    checkHighScore (score) 
 }
 
 const replay = () => {
@@ -175,54 +176,76 @@ const replay = () => {
 }
 
 
+//=== High Score Section === //
+let highScoreLists = [
+    {'name': 'testing1','score': 2},
+    {'name': 'testing2','score': 2},
+    {'name': 'testing3','score': 1},
+    {'name': 'testing4','score': 1},
+    {'name': 'testing5','score': 1},
+    {'name': 'testing6','score': 1},
+    {'name': 'testing7','score': 1},
+    {'name': 'testing8','score': 1},
+    {'name': 'testing9','score': 1},
+    {'name': 'testing10','score': 1}
+]
+
+
+// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
+
+const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
+const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
+let creatingList = document.createElement('li')
+let UserPlayerName = document.getElementById('playerName') 
+
+function checkHighScore (score) {
+    if (score !== 0) {
+        for (let i = 0; i < highScoreLists.length; i++){
+            if (score > highScoreLists[i].score){
+                highScoreMenu.style.visibility = 'visible'
+                submit.addEventListener('click', () => {
+                    playerName = UserPlayerName.value
+                    highScoreLists['name'] = playerName
+                    highScoreLists['score'] = score
+                })
+            }
+        }
+    } else {
+        return
+    }
+}
+
+function showHighScores (highScoreLists) {
+    let creatingList = document.createElement('li')
+    highScoreLists.forEach(element => {
+        highScoreListEl.appendChild(creatingList)
+        creatingList.innerHTML = element
+    })
+}
+
+
 // === High Score Section === //
-// const highScoreMenu = document.querySelector('.high_score_menu')
-// const highScoreList = document.querySelector('.high_score_list')
-
-// const liOFHighScore = 10; //<-list of HS
-// const highScoreString = localStorage.getItem(highScoreList); 
-// const highScores = ' ' //<-parse string from local storage
-// const lowestScore = ' '//<- check for high score
-
-// let playerName = document.getElementById('playerName')
-
-// === High Score Section === //
 
 
-// function checkScore (score){
-//     const highScores = JSON.parse(highScoreString) ?? []; //<-parse string from local storage
-//     const lowestScore = highScores[liOFHighScore-1]?.score ?? 0 //<- check for high score
-//     let nameAndScoreEntry = {playerName, score}
-//     if (score > lowestScore){
-//         highScoreMenu.style.visibility = 'visible'
-//         submit.addEventListener('click', () => {
-//             nameAndScoreEntry.playerName = playerName
-//         })         
-//         highScores.push(nameAndScoreEntry)
-//         highScores.sort((a,b) => b.score - a.score)
-//         highScores.splice(liOFHighScore)
-//         localStorage.setItem(highScoreString, JSON.stringify(highScores))
-//     }
-//     showHighScores(highScores)
-// }
 
-// function showHighScores (highScores) {
-//     const highScoreString = localStorage.getItem(highScoreList); 
-//     highScoreList.innerHTML = highScores
-//     .map((score) => `<li>${score.score} - ${score.name}</li>`)
-//     .join('');
-// }
 
 // function pause (){
 //     window.addEventListener('keydown', (evt) => {
-//         if (evt.code === "Space"){
-//             setTimeout(interval)
-//         } if ((evt.code === "Space"))
-//             interval (triggers, snakeSpeedtime)
+//         evt.code === ' '
+//         clearInterval(interval)
+//     })
+    
+// }
+
+// function unpause () {
+//     window.addEventListener('keydown', (evt) => {
+//         evt.code === ' '
+//         setTimeout(interval)
 //     })
 // }
 
-// pause()
+pause()
+unpause()
 
 
 

@@ -51,7 +51,7 @@ body {
     position: absolute;
     flex-direction: column;
 }
-.game_over_text, .finalScore {
+.game_over_text, .finalScore, .hsMessage {
     color: white;
     text-align: center;
 }
@@ -85,11 +85,12 @@ body {
 
 #main-menu{
     display: none;
+    text-align: center;
 }
 
-/* #game-screen {
-    visibility: hidden;
-} */
+#game-screen {
+    display: none;
+}
 
 .gameboard {
     width: 100vmin;
@@ -116,3 +117,4 @@ body {
     width: 50%;
     height: 50%;
 }
+
