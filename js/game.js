@@ -19,7 +19,7 @@ const mainMenu = document.getElementById('main-menu')
 const startGameBtn = document.getElementById('starting-game')
 // == Modal / Main Menu Variables == //
 
-let playing = false
+let playing = true
 
 // ===== Global Variables ===== //
 
