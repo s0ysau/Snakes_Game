@@ -10,3 +10,8 @@ Sept 12 -
     BUG: Realize that the using the arrow keys also moves the page. Fixed
 
     Changed the size of the gameboard
+
+sept 14 - 
+    trying to have the snake go from one side to another and not trigger lose condition in nokia stage 
+
+    pause function still not working 
