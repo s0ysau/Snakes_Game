@@ -5,37 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main_menu.css">
-    <title>Snakes!</title>
+    <title>Snakes! - Main Menu</title>
 </head>
     <script defer src="js/main_menu.js"></script>
 <body>
     <section id="main-menu">
         <div id="modal-text">
-            <h1>Welcome To Snakes!</h1>
+            <h1 class="headline">Welcome To Snakes!</h1>
             <div class="middle">
-                <div class="right-side">
-                    <h3>
-                        How to Play:
-                    </h3>
-                    <h3>
+                <div class="container">
+                    <h1 class="pickStage">Pick A Stage</h1>
+                    <button class="previous buttons">Previous</button>
+                    <div class="carousel-images">
+                        <img src="images/regular_snake.png" alt="regular game image" class="image regular-game">
+                        <img src="images/nokia_snake.png" alt="nokia game" class="image nokia-game">
+                    </div>
+                    <button class="next buttons">Next</button>
+                    <div class="description">
+                        <h2 class="text-description">Regular game of Snake</h2>
+                        <p>
                         Move the snake around and eat those apples!
-                    </h3>
-                    <h3>
-                        The more the snake eats, the more it grows
-                    </h3>
-                    <h4>
-                        You can use WASD or Arrow keys to move
-                    </h4>
-                </div>
-                <div class="left-side">
-                    <div class="container">
-                        <h1>Pick A Stage</h1>
-                        <button class="previous">Previous</button>
-                        <button class="next">Next</button>
+                        The more the snake eats, the more it grows</p>
+                        <p>You can use WASD or Arrow keys to move</p>
                     </div>
                 </div>
-            </div>
-            <button id="starting-game" class="buttons">Start Game</button>    
+            </div> 
+            <button id="starting-game" class="buttons">Start Game</button>   
         </div>
     </section>
 </body>

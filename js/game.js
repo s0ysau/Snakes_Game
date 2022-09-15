@@ -72,7 +72,7 @@ function startGame (){
     placingApples(squares)
     direction = 1;
     scoreBoard.innerHTML = `<h2 class="score">Score: ${score}</h2>`;
-    snake = [2, 1, 0]
+    snake = [1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
     snakeSpeedtime = 90

@@ -13,4 +13,7 @@ https://codewithharry.com/videos/snake-game-in-javascript
 5.
 https://www.youtube.com/watch?v=7Azlj0f9vas
 
+6.
+https://css-tricks.com/the-shapes-of-css/
+
 
