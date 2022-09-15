@@ -113,6 +113,18 @@ body {
 }
 
 .apple {
-    background: #263702;
-    border: 7.45px rgba(178,218,8,255) dashed;
+        margin-left: 12px;
+        background: #263702;
+        height: 25px;
+        position: relative;
+        width: 5px;
+}
+.apple:after {
+        background: #263702;
+        content: "";
+        height: 5px;
+        left: -8px;
+        position: absolute;
+        top: 10px;
+        width: 21px;
 }

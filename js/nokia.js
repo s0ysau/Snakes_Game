@@ -29,7 +29,7 @@ class options {
 }
 //(1, 85)
 const testingMode = new options (0.8, 470)
-const regularMode = new options (1, 85)
+const startMode = new options (0.97, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -62,10 +62,10 @@ function startGame (){
     let squares = document.querySelectorAll('.gameboard div')
     placingApples(squares)
     scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
-    snake = [3, 2, 1, 0]
+    snake = [383, 382, 381, 380]
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
-    snakeSpeedtime =regularMode.snakeSpeedtime
+    snakeSpeedtime = startMode.snakeSpeedtime
     interval = setInterval(triggers, snakeSpeedtime)
     }
 }
@@ -118,11 +118,11 @@ function eatingApple (squares, tail){
         squares[tail].classList.add('snake')
         snake.push(tail)
         placingApples(squares)
-        score = score + 7
+        score++
         scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
-        snakeSpeedtime = snakeSpeedtime * regularMode.increaseSpeed ;
+        snakeSpeedtime = snakeSpeedtime * startMode.increaseSpeed ;
         interval = setInterval(triggers, snakeSpeedtime)
     }
 }

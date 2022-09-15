@@ -6,6 +6,7 @@ const gameBoard = document.querySelector('.gameboard')
 
 const tailLook = document.querySelector('.tail')
 const gameScreen = document.getElementById('game-screen')
+const gulp = new Audio('gulp.mp3')
 // == Game Over Variables == //
 const popUp = document.querySelector('.popup')
 const game_over_text = document.querySelector('.game_over_text')
@@ -21,17 +22,6 @@ const startGameBtn = document.getElementById('starting-game')
 let playing = true
 
 // ===== Global Variables ===== //
-// ===== Classes =====//
-
-class options {
-    constructor(increaseSpeed,snakeSpeedtime){
-        this.increaseSpeed = increaseSpeed // <--- Adds speed everytime an apple is eaten
-        this.snakeSpeedtime = snakeSpeedtime // <--- speed snake moves
-    }
-}
-//(1, 85)
-const testingMode = new options (0.8, 470)
-const regularMode = new options (1, 85)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -84,7 +74,7 @@ function startGame (){
     snake = [2, 1, 0]
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
-    snakeSpeedtime =regularMode.snakeSpeedtime
+    snakeSpeedtime = 90
     interval = setInterval(triggers, snakeSpeedtime)
     }
 }
@@ -121,12 +111,30 @@ function eatingApple (squares, tail){
         snake.push(tail)
         placingApples(squares)
         score++
+        gulp.play()
         scoreBoard.innerHTML = `<h2 class="score">Score: <span class="scoreNm">${score}</span></h2>`;
         // <= increase speed for every apple eaten => //
-        clearInterval(interval)
-        snakeSpeedtime = snakeSpeedtime * regularMode.increaseSpeed ;
-        interval = setInterval(triggers, snakeSpeedtime)
-    }
+        if (score > 2){
+            clearInterval(interval)
+            snakeSpeedtime = 80 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        } 
+        if (score > 5) {
+            clearInterval(interval)
+            snakeSpeedtime = 70 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        } 
+        if (score > 10) {
+            clearInterval(interval)
+            snakeSpeedtime = 60 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
+        if (score > 15) {
+            clearInterval(interval)
+            snakeSpeedtime = 50 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
+}
 }
 
 function placingApples (squares) {
