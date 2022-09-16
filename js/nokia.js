@@ -72,6 +72,30 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
+    for (let i = 0; i < snake.length; i++){
+        if (squares[i].classList.contains('snake')){
+            // // Left
+            // if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+            //     // squares[snake[0]] == ((1 - yAxis))
+            //     (squares[snake[i] + 19].classList.add('snake'))
+            // //To(p 
+            // }
+            // if (snake[0] - yAxis < 0 && direction === -yAxis) { 
+            //     // squares[snake[0]] == (yAxis * (yAxis - 1))
+            //     (squares[snake[i] + 380].classList.add('snake'))
+            // //Bottom
+            // } 
+            // if (snake[0] + yAxis > 400 && direction === yAxis) {
+            //     // squares[snake[0]] == -(yAxis * (yAxis - 1))
+            //     (squares[snake[i] - 380].classList.add('snake'))
+            // //Right
+            // } 
+            if (snake[0] + xAxis && direction === xAxis){ 
+                // squares[snake[0]] == (yAxis - 1)
+                (squares[snake[i] - 19].classList.add('snake'))
+            }
+        }
+    }
     if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('You bit yourself!')
         gameOver()
@@ -89,27 +113,6 @@ function snakeMove () {
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
-    for (let i = 0; i < snake.length; i++){
-        // Left
-        if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
-            // squares[snake[0]] == ((1 - yAxis))
-            squares[snake[i]] = +19 
-        //Top 
-        } else if (snake[0] - yAxis <= -1 && direction === -yAxis) { 
-            // squares[snake[0]] == (yAxis * (yAxis - 1))
-            squares[snake[i]] = +380
-        //Bottom
-        } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
-            // squares[snake[0]] == -(yAxis * (yAxis - 1))
-            squares[snake[i]] = -380
-        //Right
-        } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
-            // squares[snake[0]] == (yAxis - 1)
-            squares[snake[i]] = -19
-        } else {
-            return
-        }
-    }
 }
 
 function eatingApple (squares, tail){
@@ -118,7 +121,7 @@ function eatingApple (squares, tail){
         squares[tail].classList.add('snake')
         snake.push(tail)
         placingApples(squares)
-        score++
+        score += 7
         scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
         // <= increase speed for every apple eaten => //
         clearInterval(interval)
@@ -174,6 +177,7 @@ function gameOver () {
     popUp.style.display = 'flex'
     game_over_text.innerText = `GAME OVER`
     finalScore.innerText = `YOUR SCORE ${score}`
+    checkHighScore (score)
 }
 
 function replay (){
@@ -184,4 +188,46 @@ function replay (){
     popUp.style.display = 'none'
 }
 
+let highScoreLists = [
+    {'name': 'testing1','score': 2},
+    {'name': 'testing2','score': 2},
+    {'name': 'testing3','score': 1},
+    {'name': 'testing4','score': 1},
+    {'name': 'testing5','score': 1},
+    {'name': 'testing6','score': 1},
+    {'name': 'testing7','score': 1},
+    {'name': 'testing8','score': 1},
+    {'name': 'testing9','score': 1},
+    {'name': 'testing10','score': 1}
+]
 
+const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
+const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
+let creatingList = document.createElement('li')
+let UserPlayerName = document.getElementById('playerName') 
+
+
+function checkHighScore (score) {
+    if (score !== 0) {
+        for (let i = 0; i < highScoreLists.length; i++){
+            if (score > highScoreLists[i].score){
+                highScoreMenu.style.visibility = 'visible'
+                submit.addEventListener('click', () => {
+                    playerName = UserPlayerName.value
+                    highScoreLists['name'] = playerName
+                    highScoreLists['score'] = score
+                })
+            }
+        }
+    } else {
+        return
+    }
+}
+
+function showHighScores (highScoreLists) {
+    let creatingList = document.createElement('li')
+    highScoreLists.forEach(element => {
+        highScoreListEl.appendChild(creatingList)
+        creatingList.innerHTML = element
+    })
+}

@@ -57,7 +57,7 @@ body {
 }
 
 .playAgain {
-    margin: auto;
+    margin: 10px auto 0 auto;
 }
 
 .game_over_text {
@@ -124,5 +124,10 @@ body {
     border-radius: 50px;
 }
 
+.back-main-menu {
+    text-align: center;
+    padding-top: 25px;
+    color: white;
+}
 
 

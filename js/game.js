@@ -34,28 +34,12 @@ let snakeSpeedtime = 0 // <--- speed snake moves
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // openMainMenu ()
     gameScreen.style.display = 'flex'
     createBoard()
     startGame()
     // showHighScores()
 })
 
-// ===== Modal ===== //
-
-// const openMainMenu = () => {
-//     mainMenu.style.display = 'grid'
-// }
-
-// startGameBtn.addEventListener('click', () => {   
-//     mainMenu.style.display = 'none'
-//     gameScreen.style.display = 'flex'
-//     createBoard()
-//     startGame()
-//     showHighScores (highScoreLists)
-// })
-
-// ===== Modal ===== //
 
 // ===== Functions ===== //
 
