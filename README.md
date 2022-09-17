@@ -15,7 +15,7 @@ Player can use both arrow keys and WASD to move the snake around the grid
 ![Page2](https://user-images.githubusercontent.com/105724406/190867833-ed47d1a9-965d-486f-bf99-cd4513c505f4.jpg)
 
 I decided to go with the blue option and put the text and 'How to Play' under the stage image.
-It's much cleaner and less compacted. I also decided against a hamburger menu for now as there's isn't that much options like High Scores html which is still in alpha.
+It's much cleaner and less compacted. I also decided against a hamburger menu for now as there's isn't that much options like High Scores html which is still in development.
 
 <h2>Game board grid</h2>
 
@@ -40,3 +40,10 @@ If the snake hits one of the borders<br>
 <h6>Nokia Snakes Game</h6>
 I wanted to make this stage look as close to the old school Nokia game as possible. 
 The only difference between this and the original stage is the look and the score, which this game is additonal 7 pts rather than 1 pt.
+
+<h2>Game Over Screen</h2>
+Once the player loses, they will be directed to the Game Over screen where they have to option to play again or return to the main menu.
+
+If they obtained a high score, a popup will occur asking them to input their name and have that information stored in the local stoarge. 
+<h4>NOTE:</h4>
+High Score functionality is still being developed and it is currently not working.
