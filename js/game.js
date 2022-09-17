@@ -197,15 +197,21 @@ submit.addEventListener('click', () => {
         'name': UserPlayerName.value, 'score': score
     };
 
-    localStorage.setItem('player', object)
     console.log(object)
     console.log(typeof object)
-    let data = JSON.parse(localStorage.getItem('player'))
+
+    let convertingToString = JSON.stringify(object)
+    localStorage.setItem('player', convertingToString)
+    console.log(convertingToString)
+
+    
+    
+    let data = []
     data.push(object)
     console.log(data)
     data.sort((a, b) => b.score - a.score)
     data.splice(5)
-
+    
     localStorage.setItem('player', data)
 
     

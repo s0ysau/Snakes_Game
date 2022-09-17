@@ -12,9 +12,6 @@ let previousStage = 0
 
 document.addEventListener("DOMContentLoaded", () => {
     openMainMenu ()
-    // createBoard()
-    // startGame()
-    // showHighScores()
 })
 
 // ===== Modal ===== //
