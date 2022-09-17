@@ -203,6 +203,10 @@ submit.addEventListener('click', () => {
     localStorage.setItem('player', JSON.stringify(highScores))
 })
 
+highScoreListEl.innerHTML = highScores.map(indScore => {
+    return (`<li class="listing">${indScore.name} - ${indScore.score}</li>`);
+}).join("");
+
 function checkHighScore (score) {
     highScoreMenu.style.visibility = 'visible'
 }

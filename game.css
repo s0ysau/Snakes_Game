@@ -144,3 +144,11 @@ body {
 }
 
 
+.container {
+    color: white;
+}
+
+.high_score_list {
+    width: 10%;
+    margin-left: 43%;
+}
