@@ -189,45 +189,19 @@ const highScoreThreshold = 0
 
 //=== High Score Section === //
 
+const highScores = JSON.parse(localStorage.getItem('player')) || [];
 
-
+const maxNumList = 5 //<- current number of names in HighScore list
 
 submit.addEventListener('click', () => {
-    let object = {
+    const object = {
         'name': UserPlayerName.value, 'score': score
     };
-
-    console.log(object)
-    console.log(typeof object)
-
-    let convertingToString = JSON.stringify(object)
-    localStorage.setItem('player', convertingToString)
-    console.log(convertingToString)
-
-    
-    
-    let data = []
-    data.push(object)
-    console.log(data)
-    data.sort((a, b) => b.score - a.score)
-    data.splice(5)
-    
-    localStorage.setItem('player', data)
-
-    
-    // let playerInfo = JSON.stringify(object)
-    // console.log(typeof playerInfo)
-
-    // let data = JSON.parse(localStorage.getItem('player')) //<- Returns JSON string to JS object
-    // console.log(typeof data)
-
-    // localStorage.setItem('data', JSON.stringify(data))
-
+    highScores.push(object)
+    highScores.sort((a ,b) => b.score - a.score)
+    highScores.splice(5)
+    localStorage.setItem('player', JSON.stringify(highScores))
 })
-
-// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
-
-
 
 function checkHighScore (score) {
     highScoreMenu.style.visibility = 'visible'
