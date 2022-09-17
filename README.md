@@ -4,6 +4,9 @@ The game's objective is to move the snake around a defined grid and grabbing the
 
 The more apples the snake gets, the more it grows.
 
+<h2>Movements</h2>
+Player can use both arrow keys and WASD to move the snake around the grid
+
 <h2>Main Menu</h2>
 
 <h6>Wireframe Setup</h6>
@@ -23,3 +26,17 @@ It's much cleaner and less compacted. I also decided against a hamburger menu fo
 ![Page3](https://user-images.githubusercontent.com/105724406/190868001-75e78873-f2ac-477a-b476-44312e18b1fa.jpg)
 
 Originally, I had setup the grid to be 10x10 but as I gradually played around with the width and height; I was able to expand it to 20x20. Also, the original two stages were created using for loop and div, if time permits, I will create another stage using canvas.
+
+<h2>Stage Concepts</h2>
+<h6>Snakes Game</h6>
+Original Stage. This is where I conduct any revisions to the code and if successful, copy it to the other stage js file if they also need it. 
+
+<h7>Lose Conditions</h7>
+If the snake bits itself (snake[0] != snake[index])<br>
+If the snake hits one of the borders<br> 
+(snake[0] != -1, 400; for top and bottom) <br>
+(snake[0] % != yAxis when direction === 1 or -1; for left and right)
+
+<h6>Nokia Snakes Game</h6>
+I wanted to make this stage look as close to the old school Nokia game as possible. 
+The only difference between this and the original stage is the look and the score, which this game is additonal 7 pts rather than 1 pt.
