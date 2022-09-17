@@ -61,10 +61,12 @@ function gameDescription () {
         <p>
         Move the snake around and eat those apples!
         The more the snake eats, the more it grows</p>
+        <p>Try to make it on the High Scores list</p>
         <p>You can use WASD or Arrow keys to move</p>`
     } else if (images[currentStage].classList.contains('nokia-game')){
         description.innerHTML = `<h2 class="text-description">Old School Snake
         </h2><p>If you are feeling a bit nostalgic</p>
+        <p>Try to make it on the High Scores list</p>
         <p>You can use WASD or Arrow keys to move</p>`
     } else {
         return
