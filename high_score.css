@@ -1,0 +1,45 @@
+@import url('http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
+@import url('http://fonts.googleapis.com/css?family=Press+Start+2P');
+
+
+
+.title {
+    text-align: center;
+}
+.container {
+    display: grid;
+}
+.regular-title {
+    margin-top: 12px;
+}
+
+.regular-game {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background: #263702 ;
+    color: rgba(178,218,8,255);
+    font-family: 'Shadows Into Light Two', 'serif';
+    padding: 0 0 0 20px;
+;}
+
+.nokia-game {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background: rgba(178,218,8,255);
+    color: #263702;
+    font-family: 'Press Start 2P', monospace;
+    padding: 0 0 0 20px;
+}
+
+.nokia-title {
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.high_score_list_for_nokia {
+    margin-left: 30px;
+}
+
+.back-main-menu {
+    margin-left: 45%;
+}

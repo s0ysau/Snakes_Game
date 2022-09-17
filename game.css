@@ -11,6 +11,7 @@ body {
     justify-content: center;
     /* align-items: center; */
     margin: 0;
+    font-family: 'Shadows Into Light Two', 'serif';
 }
 
 .headline {
@@ -29,7 +30,7 @@ body {
 
 .display{
     flex-wrap: wrap;
-    padding: 1px 10px;
+    padding: 1px 10px 20px 10px;
     margin-left: 20px;
     color: rgb(12, 72, 12);
     background-color: rgb(151, 205, 75);

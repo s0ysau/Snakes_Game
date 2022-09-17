@@ -1,5 +1,3 @@
-console.log('ah snakes!')
-
 // ===== Global Variables ===== //
 const scoreBoard = document.querySelector('.scoreboard')
 const gameBoard = document.querySelector('.gameboard')
