@@ -201,23 +201,22 @@ submit.addEventListener('click', () => {
     highScores.sort((a ,b) => b.score - a.score)
     highScores.splice(5)
     localStorage.setItem('player', JSON.stringify(highScores))
+    updatingHighScore ()
 })
 
+function updatingHighScore () {
 highScoreListEl.innerHTML = highScores.map(indScore => {
     return (`<li class="listing">${indScore.name} - ${indScore.score}</li>`);
 }).join("");
+}
 
 function checkHighScore (score) {
+    let checkLowestScore = JSON.parse(localStorage.getItem('player'))
+    console.log(checkHighScore)
     highScoreMenu.style.visibility = 'visible'
 }
 
-function showHighScores (highScoreLists) {
-    let creatingList = document.createElement('li')
-    highScoreLists.forEach(element => {
-        highScoreListEl.appendChild(creatingList)
-        creatingList.innerHTML = element
-    })
-}
+
 
 
 // === High Score Section === //

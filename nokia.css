@@ -136,6 +136,11 @@ body {
     color: white;
 }
 
-.high_score_list {
+.container {
     color: white;
+}
+
+.high_score_list {
+    width: 30%;
+    margin-left: 35%;
 }
