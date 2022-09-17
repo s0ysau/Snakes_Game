@@ -110,6 +110,7 @@ body {
 
 .snake {
     background: #263702;
+    padding: 5px;
     animation: moving 2s infinite;
 }
 
@@ -143,4 +144,8 @@ body {
 .high_score_list {
     width: 30%;
     margin-left: 35%;
+}
+
+.listing {
+    padding: 5px;
 }

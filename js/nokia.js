@@ -6,6 +6,7 @@ const gameBoard = document.querySelector('.gameboard')
 
 const tailLook = document.querySelector('.tail')
 const gameScreen = document.getElementById('game-screen')
+const wallbump = new Audio ('Sounds/8-bit-bump.mp3')
 // == Game Over Variables == //
 const popUp = document.querySelector('.popup')
 const game_over_text = document.querySelector('.game_over_text')
@@ -76,6 +77,7 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
+        // wallbump.play()
         alert('Game Over')
         gameOver()
     // for (let i = 0; i < snake.length; i++){

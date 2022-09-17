@@ -6,7 +6,8 @@ const gameBoard = document.querySelector('.gameboard')
 
 const tailLook = document.querySelector('.tail')
 const gameScreen = document.getElementById('game-screen')
-const gulp = new Audio('gulp.mp3')
+const gulp = new Audio('Sounds/gulp.mp3')
+const bumponwall = new Audio ('Sounds/wall-bump.mp3')
 // == Game Over Variables == //
 const popUp = document.querySelector('.popup')
 const game_over_text = document.querySelector('.game_over_text')
@@ -20,6 +21,14 @@ const startGameBtn = document.getElementById('starting-game')
 // == Modal / Main Menu Variables == //
 
 let playing = true
+
+// == High Score Variables ==//
+const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
+const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
+let creatingList = document.createElement('li')
+let UserPlayerName = document.getElementById('playerName') 
+const maxNumList = 5 //<- current number of names in HighScore list
+// == High Score Variables ==//
 
 // ===== Global Variables ===== //
 
@@ -70,6 +79,7 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
+        bumponwall.play()
         alert('You slytherin to a wall!')
         gameOver()
     } else if ((squares[snake[0] + direction].classList.contains('snake'))){
@@ -180,18 +190,12 @@ function replay (){
     popUp.style.display = 'none'
 }
 
-const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
-const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
-let creatingList = document.createElement('li')
-let UserPlayerName = document.getElementById('playerName') 
-
-const highScoreThreshold = 0
 
 //=== High Score Section === //
 
 const highScores = JSON.parse(localStorage.getItem('player')) || [];
 
-const maxNumList = 5 //<- current number of names in HighScore list
+
 
 submit.addEventListener('click', () => {
     const object = {
@@ -211,11 +215,13 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
 }
 
 function checkHighScore (score) {
-    let checkLowestScore = JSON.parse(localStorage.getItem('player'))
-    console.log(checkHighScore)
-    highScoreMenu.style.visibility = 'visible'
+    let getLowestScore = JSON.parse(localStorage.getItem('player'))
+    if (score > getLowestScore[4].score){
+        highScoreMenu.style.visibility = 'visible'
+    } else {
+        return 
+    }
 }
-
 
 
 
