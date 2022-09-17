@@ -27,7 +27,7 @@ const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when 
 const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
 let creatingList = document.createElement('li')
 let UserPlayerName = document.getElementById('playerName') 
-const maxNumList = 5 //<- current number of names in HighScore list
+
 // == High Score Variables ==//
 
 // ===== Global Variables ===== //
@@ -129,6 +129,11 @@ function eatingApple (squares, tail){
             snakeSpeedtime = 50 ;
             interval = setInterval(triggers, snakeSpeedtime)
         }
+        if (score > 20) {
+            clearInterval(interval)
+            snakeSpeedtime = 30 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
 }
 }
 
@@ -203,7 +208,7 @@ submit.addEventListener('click', () => {
     };
     highScores.push(object)
     highScores.sort((a ,b) => b.score - a.score)
-    highScores.splice(5)
+    highScores.splice(10)
     localStorage.setItem('player', JSON.stringify(highScores))
     updatingHighScore ()
 })
@@ -216,7 +221,7 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
 
 function checkHighScore (score) {
     let getLowestScore = JSON.parse(localStorage.getItem('player'))
-    if (score > getLowestScore[4].score){
+    if (score > getLowestScore[9].score){
         highScoreMenu.style.visibility = 'visible'
     } else {
         return 

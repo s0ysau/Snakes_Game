@@ -222,8 +222,6 @@ const highScoreListEl = document.querySelector('.high_score_list')//<-list of hi
 let creatingList = document.createElement('li')
 let UserPlayerName = document.getElementById('playerName') 
 
-const highScoreThreshold = 0
-
 const highScores = JSON.parse(localStorage.getItem('nokiaHSsection')) || [];
 
 const maxNumList = 5 //<- current number of names in HighScore list
@@ -234,7 +232,7 @@ submit.addEventListener('click', () => {
     };
     highScores.push(object)
     highScores.sort((a ,b) => b.score - a.score)
-    highScores.splice(5)
+    highScores.splice(10)
     localStorage.setItem('nokiaHSsection', JSON.stringify(highScores))
     updatingHighScore ()
 })
@@ -244,9 +242,11 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
     return (`<li class="listing">${indScore.name} - ${indScore.score}</li>`);
 }).join("");
 }
-
 function checkHighScore (score) {
-    let checkLowestScore = JSON.parse(localStorage.getItem('player'))
-    console.log(checkHighScore)
-    highScoreMenu.style.visibility = 'visible'
+    let getLowestScore = JSON.parse(localStorage.getItem('player'))
+    if (score > getLowestScore[9].score){
+        highScoreMenu.style.visibility = 'visible'
+    } else {
+        return 
+    }
 }
