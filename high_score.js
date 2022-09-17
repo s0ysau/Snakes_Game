@@ -17,12 +17,12 @@ let highScoreLists = [
 ]
 
 
-// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
+window.localStorage.setItem('player',JSON.stringify(highScoreObject))
 
 const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
 const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
-let creatingList = document.createElement('li')
-let UserPlayerName = document.getElementById('playerName') 
+let creatingList = document.createElement('li') //<- individual list
+let UserPlayerName = document.getElementById('playerName') //<- User name input 
 
 function checkHighScore (score) {
     if (score !== 0) {

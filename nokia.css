@@ -6,7 +6,6 @@ body {
     width: 100vw;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     margin: 0;
     font-family: 'Press Start 2P', monospace;
 }
@@ -58,7 +57,8 @@ body {
 }
 
 .playAgain {
-    margin: 10px auto 0 auto;
+    width: 8%;
+    margin: 40px 43% 10px 47%;
 }
 
 .game_over_text {
@@ -94,6 +94,7 @@ body {
 
 .high_score_menu {
     visibility: hidden;
+    text-align: center;
 }
 
 

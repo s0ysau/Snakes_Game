@@ -136,7 +136,6 @@ function placingApples (squares) {
 window.addEventListener('keydown', keyDown)
 
 function keyDown (evt) {
-    console.log(evt)
     if (evt.code === 'ArrowRight' || evt.code === 'KeyD') {
         if(direction == -xAxis)
             return;
@@ -181,47 +180,51 @@ function replay (){
     popUp.style.display = 'none'
 }
 
-
-
-
-
-//=== High Score Section === //
-let highScoreLists = [
-    {'name': 'testing1','score': 2},
-    {'name': 'testing2','score': 2},
-    {'name': 'testing3','score': 1},
-    {'name': 'testing4','score': 1},
-    {'name': 'testing5','score': 1},
-    {'name': 'testing6','score': 1},
-    {'name': 'testing7','score': 1},
-    {'name': 'testing8','score': 1},
-    {'name': 'testing9','score': 1},
-    {'name': 'testing10','score': 1}
-]
-
-
-// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
-
 const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
 const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
 let creatingList = document.createElement('li')
 let UserPlayerName = document.getElementById('playerName') 
 
+const highScoreThreshold = 0
+
+//=== High Score Section === //
+
+
+
+
+submit.addEventListener('click', () => {
+    let object = {
+        'name': UserPlayerName.value, 'score': score
+    };
+
+    localStorage.setItem('player', object)
+    console.log(object)
+    console.log(typeof object)
+    let data = JSON.parse(localStorage.getItem('player'))
+    data.push(object)
+    console.log(data)
+    data.sort((a, b) => b.score - a.score)
+    data.splice(5)
+
+    localStorage.setItem('player', data)
+
+    
+    // let playerInfo = JSON.stringify(object)
+    // console.log(typeof playerInfo)
+
+    // let data = JSON.parse(localStorage.getItem('player')) //<- Returns JSON string to JS object
+    // console.log(typeof data)
+
+    // localStorage.setItem('data', JSON.stringify(data))
+
+})
+
+// window.localStorage.setItem('player',JSON.stringify(highScoreObject))
+
+
+
 function checkHighScore (score) {
-    if (score !== 0) {
-        for (let i = 0; i < highScoreLists.length; i++){
-            if (score > highScoreLists[i].score){
-                highScoreMenu.style.visibility = 'visible'
-                submit.addEventListener('click', () => {
-                    playerName = UserPlayerName.value
-                    highScoreLists['name'] = playerName
-                    highScoreLists['score'] = score
-                })
-            }
-        }
-    } else {
-        return
-    }
+    highScoreMenu.style.visibility = 'visible'
 }
 
 function showHighScores (highScoreLists) {

@@ -1,5 +1,10 @@
+@import url('http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
+
+
 body {
     background: rgb(228, 250, 254);
+    background-image: url('images/jungle_background.jpeg');
+    background-size: contain;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -10,20 +15,26 @@ body {
 
 .headline {
     background: rgb(12, 72, 12);
-    color: white;
+    color: rgb(152, 206, 76);
     display: inline-block;
     vertical-align: middle;
     padding: 5px;
     text-align: center;
     margin: 10px 10px;
-    height: 440px;
+    height: 555px;
     font-size: 4em;
+    font-family: 'Shadows Into Light Two', 'serif';
+    box-shadow: 5px 5px 30px 10px;
 }
 
 .display{
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 1px 10px;
     margin-left: 20px;
+    color: rgb(12, 72, 12);
+    background-color: rgb(151, 205, 75);
+    height: 10%;
+    font-size: 1.5em;
 }
 
 .scoreNm {
@@ -57,7 +68,8 @@ body {
 }
 
 .playAgain {
-    margin: 10px auto 0 auto;
+    width: 8%;
+    margin: 40px 43% 10px 47%;
 }
 
 .game_over_text {
@@ -93,6 +105,7 @@ body {
 
 .high_score_menu {
     visibility: hidden;
+    text-align: center;
 }
 
 #main-menu{

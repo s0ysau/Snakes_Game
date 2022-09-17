@@ -29,7 +29,7 @@ class options {
 }
 //(1, 85)
 const testingMode = new options (0.8, 470)
-const startMode = new options (0.97, 100)
+const startMode = new options (0.95, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -72,39 +72,66 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
+    if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
+        (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
+        (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
+        (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
+        alert('Game Over')
+        gameOver()
+    // for (let i = 0; i < snake.length; i++){
+    // if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+    //     (squares[snake[i] + 19].classList.add('snake'))
+    //     snakeMove(squares)
+    // //To(p 
+    // }
+    // if (snake[0] - yAxis <= -1 && direction === -yAxis) {
+    //     (squares[snake[i] + 380].classList.add('snake'))
+    //     snakeMove(squares)
+    // //Bottom
+    // } 
+    // if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+    //     (squares[snake[i] - 380].classList.add('snake'))
+    //     snakeMove(squares)
+    // //Right
+    // } 
+    // if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
+    //     (squares[snake[i] - 19].classList.add('snake')) 
+    //     snakeMove(squares)
+
+    } else 
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
+        alert('Game Over')
+        gameOver()
+    } else {
+        snakeMove(squares)
+    }
+}
+//}
+
+function movingOutOfGrid (squares) {
     for (let i = 0; i < snake.length; i++){
-        if (squares[i].classList.contains('snake')){
-            // // Left
-            // if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
-            //     // squares[snake[0]] == ((1 - yAxis))
-            //     (squares[snake[i] + 19].classList.add('snake'))
-            // //To(p 
-            // }
-            // if (snake[0] - yAxis < 0 && direction === -yAxis) { 
-            //     // squares[snake[0]] == (yAxis * (yAxis - 1))
-            //     (squares[snake[i] + 380].classList.add('snake'))
-            // //Bottom
-            // } 
-            // if (snake[0] + yAxis > 400 && direction === yAxis) {
-            //     // squares[snake[0]] == -(yAxis * (yAxis - 1))
-            //     (squares[snake[i] - 380].classList.add('snake'))
-            // //Right
-            // } 
-            if (snake[0] + xAxis && direction === xAxis){ 
-                // squares[snake[0]] == (yAxis - 1)
+        if (squares[snake[i]].classList.contains('snake')){
+            // Left
+            if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+                (squares[snake[i] + 19].classList.add('snake'))
+            //To(p 
+            }
+            if (snake[0] - yAxis <= -1 && direction === -yAxis) {
+                (squares[snake[i] + 380].classList.add('snake'))
+            //Bottom
+            } 
+            if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+                (squares[snake[i] - 380].classList.add('snake'))
+            //Right
+            } 
+            if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
                 (squares[snake[i] - 19].classList.add('snake'))
+            } else {
+                triggers()
             }
         }
     }
-    if ((squares[snake[0] + direction].classList.contains('snake'))){
-        alert('You bit yourself!')
-        gameOver()
-    } else {
-        snakeMove()
-    }
 }
-
-
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
