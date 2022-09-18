@@ -261,6 +261,11 @@ function replay (){
     popUp.style.display = 'none'
 }
 
+playAgain.addEventListener('click', () => {
+    replay()
+})
+
+
 submit.addEventListener('click', () => {
     const object = {
         'name': UserPlayerName.value, 'score': score
