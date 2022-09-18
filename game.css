@@ -1,5 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
-
+@media screen and (max-width: 1660px){
 
 body {
     background: rgb(228, 250, 254);
@@ -152,4 +152,10 @@ body {
 .high_score_list {
     width: 10%;
     margin-left: 43%;
+}
+
+.listing {
+    padding: 50px 0;
+}
+
 }

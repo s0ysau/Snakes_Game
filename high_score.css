@@ -1,6 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
 @import url('http://fonts.googleapis.com/css?family=Press+Start+2P');
-
+@media screen and (max-width: 1660px){
 
 
 .title {
@@ -20,6 +20,7 @@
     color: rgba(178,218,8,255);
     font-family: 'Shadows Into Light Two', 'serif';
     padding: 0 0 0 20px;
+    font-size: 1.2em;
 ;}
 
 .nokia-game {
@@ -42,4 +43,11 @@
 
 .back-main-menu {
     margin-left: 45%;
+}
+
+.nokia {
+    padding: 5px 0;
+}
+
+
 }

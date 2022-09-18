@@ -3,8 +3,6 @@
 
 This game objective is to move the snake around a defined grid and grabbing the apple that randomly appears. 
 
-The game's objective is to move the snake around a defined grid and grabbing the apple that randomly appears. 
-
 The more apples the snake gets, the more it grows.
 
 <h2>Movements</h2>
@@ -52,3 +50,7 @@ If they obtained a high score, a popup will occur asking them to input their nam
 <h5>Sprint Testing</h5>
 First Run:
 Regular game: pass
+Everything works as expected. 
+
+<h2>Unsovled Problems</h2>
+

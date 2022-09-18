@@ -1,3 +1,6 @@
+@media screen and (max-width: 1660px);
+
+
 body {
     background: olivedrab;
     background-image: url('images/snake-desert.jpeg');

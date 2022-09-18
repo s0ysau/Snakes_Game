@@ -13,13 +13,13 @@ console.log(nokiaHighScores)
 
 function updatingHighScoreReg () {
     highScoreForReg.innerHTML = highScores.map(regScore => {
-        return (`<li class="listing">${regScore.name} - ${regScore.score}</li>`);
+        return (`<li class="listing regular">${regScore.name} - ${regScore.score}</li>`);
     }).join("");
 }
 
 function updatingHighScoreNokia () {
     highScoreForNokia.innerHTML = nokiaHighScores.map(nokiaScore => {
-        return (`<li class="listing">${nokiaScore.name} - ${nokiaScore.score}</li>`);
+        return (`<li class="listing nokia">${nokiaScore.name} - ${nokiaScore.score}</li>`);
     }).join("");
 }
 
