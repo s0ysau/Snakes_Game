@@ -15,6 +15,14 @@ const playAgain = document.querySelector('.playAgain')
 const submit = document.querySelector('.submitHS')
 // == Game Over Variables == //
 
+// == High Score Variables ==//
+const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
+const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
+let creatingList = document.createElement('li')
+let UserPlayerName = document.getElementById('playerName') 
+
+const highScores = JSON.parse(localStorage.getItem('nokiaHSsection')) || [];
+// == High Score Variables ==//
 
 
 let playing = true
@@ -45,7 +53,6 @@ let snakeSpeedtime = 0 // <--- speed snake moves
 document.addEventListener("DOMContentLoaded", () => {
     createBoard()
     startGame()
-    // showHighScores()
 })
 
 
@@ -71,15 +78,35 @@ function startGame (){
     }
 }
 
+
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
     if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
-        // wallbump.play()
         alert('Game Over')
         gameOver()
+    } else 
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
+        alert('Game Over')
+        gameOver()
+    } else {
+        snakeMove(squares)
+    }
+}
+
+
+
+// function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
+//     let squares = document.querySelectorAll('.gameboard div')
+//     if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
+//         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
+//         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
+//         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
+//         // wallbump.play()
+//         alert('Game Over')
+//         gameOver()
     // for (let i = 0; i < snake.length; i++){
     // if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
     //     (squares[snake[i] + 19].classList.add('snake'))
@@ -100,15 +127,37 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     //     (squares[snake[i] - 19].classList.add('snake')) 
     //     snakeMove(squares)
 
-    } else 
-    if ((squares[snake[0] + direction].classList.contains('snake'))){
-        alert('Game Over')
-        gameOver()
-    } else {
-        snakeMove(squares)
-    }
-}
-//}
+//     } else 
+//     if ((squares[snake[0] + direction].classList.contains('snake'))){
+//         alert('Game Over')
+//         gameOver()
+//     } else {
+//         snakeMove(squares)
+//     }
+// }
+// //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function movingOutOfGrid (squares) {
     for (let i = 0; i < snake.length; i++){
@@ -193,11 +242,6 @@ function keyDown (evt) {
     } 
 }
 
-playAgain.addEventListener('click', () => {
-    replay()
-})
-
-
 // == Buttons and KeyStrokes == //
 
 
@@ -217,15 +261,6 @@ function replay (){
     popUp.style.display = 'none'
 }
 
-const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when score makes list
-const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
-let creatingList = document.createElement('li')
-let UserPlayerName = document.getElementById('playerName') 
-
-const highScores = JSON.parse(localStorage.getItem('nokiaHSsection')) || [];
-
-const maxNumList = 5 //<- current number of names in HighScore list
-
 submit.addEventListener('click', () => {
     const object = {
         'name': UserPlayerName.value, 'score': score
@@ -242,6 +277,7 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
     return (`<li class="listing">${indScore.name} - ${indScore.score}</li>`);
 }).join("");
 }
+
 function checkHighScore (score) {
     let getLowestScore = JSON.parse(localStorage.getItem('player'))
     if (score > getLowestScore[9].score){
@@ -250,3 +286,7 @@ function checkHighScore (score) {
         return 
     }
 }
+
+playAgain.addEventListener('click', () => {
+    replay()
+})

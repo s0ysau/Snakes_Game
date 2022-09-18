@@ -49,3 +49,6 @@ Once the player loses, they will be directed to the Game Over screen where they 
 
 If they obtained a high score, a popup will occur asking them to input their name and have that information stored in the local stoarge. 
 
+<h5>Sprint Testing</h5>
+First Run:
+Regular game: pass

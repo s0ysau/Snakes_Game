@@ -25,6 +25,7 @@ const highScoreMenu = document.querySelector('.high_score_menu')//<- Popup when 
 const highScoreListEl = document.querySelector('.high_score_list')//<-list of high scores
 let creatingList = document.createElement('li')
 let UserPlayerName = document.getElementById('playerName') 
+const highScores = JSON.parse(localStorage.getItem('player')) || [];
 
 // == High Score Variables ==//
 
@@ -44,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gameScreen.style.display = 'flex'
     createBoard()
     startGame()
-    // showHighScores()
 })
 
 
@@ -195,10 +195,6 @@ function replay (){
 
 
 //=== High Score Section === //
-
-const highScores = JSON.parse(localStorage.getItem('player')) || [];
-
-
 
 submit.addEventListener('click', () => {
     const object = {
