@@ -15,3 +15,8 @@ sept 14 -
     trying to have the snake go from one side to another and not trigger lose condition in nokia stage 
 
     pause function still not working 
+
+sept 17 - 
+    Once working, high scores function isn't working
+
+    [{"name":"First Run","score":98},{"name":"Jerrick","score":56},{"name":"Sixth Run","score":49},{"name":"Testing-2","score":49},{"name":"Third Run","score":42},{"name":"Fourth Run","score":28},{"name":"Seventh Run","score":28},{"name":"Testing-3","score":28},{"name":"Second Run","score":21},{"name":"Jerrick","score":14}]

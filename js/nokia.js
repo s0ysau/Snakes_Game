@@ -279,7 +279,7 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
 }
 
 function checkHighScore (score) {
-    let getLowestScore = JSON.parse(localStorage.getItem('player'))
+    let getLowestScore = JSON.parse(localStorage.getItem('nokiaHSsection'))
     if (score > getLowestScore[9].score){
         highScoreMenu.style.visibility = 'visible'
     } else {
