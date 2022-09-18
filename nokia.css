@@ -1,5 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Press+Start+2P');
-@media screen and (max-width: 1660px){
+/* @media screen and (max-width: 1660px){ */
 
 body {
     background: rgba(178,218,8,255);
@@ -98,6 +98,11 @@ body {
     text-align: center;
 }
 
+#game-screen {
+    display: none;
+    flex-direction: column;
+}
+
 
 .gameboard {
     width: 80vmin;
@@ -153,4 +158,4 @@ body {
 
 
 
-}
+/* } */

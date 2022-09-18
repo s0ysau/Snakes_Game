@@ -132,7 +132,7 @@ function eatingApple (squares, tail){
             snakeSpeedtime = 30 ;
             interval = setInterval(triggers, snakeSpeedtime)
         }
-}
+    }
 }
 
 function placingApples (squares) {
@@ -221,24 +221,6 @@ function checkHighScore (score) {
         return 
     }
 }
-
-
-
-// === High Score Section === //
-
-// function pause (){
-//     window.addEventListener('click', (evt) => {
-//         console.log(evt)
-//         if (evt.key === 'Shift' && playing === false){
-//             playing = true
-//         } else if (evt.key === 'Shift' && playing === true) {
-//             playing = false
-//         }
-//     })
-// }
-
-
-
 
 
 
