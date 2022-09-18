@@ -33,9 +33,9 @@ class options {
         this.snakeSpeedtime = snakeSpeedtime // <--- speed snake moves
     }
 }
-//(1, 85)
+
 // const testingMode = new options (0.8, 470)
-const startMode = new options (0.95, 100)
+const startMode = new options (0.90, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -78,8 +78,6 @@ function startGame (){
     console.log(interval)
     }
 }
-
-
 
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
