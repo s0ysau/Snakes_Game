@@ -39,7 +39,7 @@ If the snake hits one of the borders<br>
 
 <h6>Nokia Snakes Game</h6>
 I wanted to make this stage look as close to the old school Nokia game as possible. 
-The only difference between this and the original stage is the look and the score, which this game is additonal 7 pts rather than 1 pt.
+The difference between this and the original stage is the look, the score, which this game is additonal 7 pts rather than 1 pt and the snake is not limited to the borders, it will appear on the opposite side of the grid.
 
 <h2>Game Over Screen</h2>
 Once the player loses, they will be directed to the Game Over screen where they have to option to play again or return to the main menu.
@@ -58,10 +58,13 @@ Everything works as expected.
 
 Fixed: 
 Nokia game - Game over loop fixed
+Borderless movement works. There might be some bugs.
 
 Regular game - bug when the snake crashes into the border fixed but removing audio files.
 
-
 <h2>Unsovled Problems</h2>
-Nokia - Was able to get the snake to move from top to bottom and left to right without crashing into the border but the snake expands as it makes the transition from one side to the another. Same problem in all directions.
 
+<h2>Future Features</h2>
+<ul>A stage using canvas</ul>
+<ul>A pause function</ul>
+<ul>A safe, unified way to consolidate High Scores data</ul>
