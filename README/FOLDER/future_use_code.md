@@ -18,3 +18,44 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     } else {
         snakeMove(squares)
     }
+
+
+
+
+Code that allows the snake to move from outside the border to the other side.
+
+    function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
+    let squares = document.querySelectorAll('.gameboard div')
+    let tail = snake.pop();
+    // squares[tail].classList.remove('snake')
+    // snake.unshift(snake[0] + direction)
+    // // eatingApple(squares, tail)
+    // squares[snake[0]].classList.add('snake')
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
+        alert('Game Over')
+        gameOver()
+    //Left
+    } else if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+        snake.unshift(snake[0] + 19)
+        squares[tail].classList.remove('snake')
+        squares[snake[0]].classList.add('snake')
+    //Top 
+    } else if (snake[0] - yAxis <= -1 && direction === -yAxis) {
+        snake.unshift(snake[0] + 380)
+        squares[tail].classList.remove('snake')
+        squares[snake[0]].classList.add('snake')
+    //Bottom
+    } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+        snake.unshift(snake[0] - 380)
+        squares[tail].classList.remove('snake')
+        squares[snake[0]].classList.add('snake')
+    //Right
+    } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
+        snake.unshift(snake[0] - 19)
+        squares[tail].classList.remove('snake')
+        squares[snake[0]].classList.add('snake')
+
+    } else {
+        snakeMove(squares)
+    }
+}

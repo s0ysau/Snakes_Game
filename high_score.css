@@ -2,9 +2,12 @@
 @import url('http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
 @import url('http://fonts.googleapis.com/css?family=Press+Start+2P');
 
-
+body {
+    background-color: black;
+}
 
 .title {
+    color:whitesmoke;
     text-align: center;
 }
 .container {
@@ -44,6 +47,7 @@
 
 .back-main-menu {
     margin-left: 45%;
+    color: white;;
 }
 
 .nokia {

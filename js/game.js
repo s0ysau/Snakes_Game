@@ -77,7 +77,6 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
-        bumponwall.play()
         alert('You slytherin to a wall!')
         gameOver()
     } else if ((squares[snake[0] + direction].classList.contains('snake'))){

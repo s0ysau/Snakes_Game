@@ -1,6 +1,5 @@
 <h1>SNAKES!</h1>
 
-
 This game objective is to move the snake around a defined grid and grabbing the apple that randomly appears. 
 
 The more apples the snake gets, the more it grows.
@@ -47,10 +46,22 @@ Once the player loses, they will be directed to the Game Over screen where they 
 
 If they obtained a high score, a popup will occur asking them to input their name and have that information stored in the local stoarge. 
 
+<h2>High Scores</h2>
+Added High Scores list 
+
+There are two local storages: one on the GitHub Pages and one on the local HTML.
+
 <h5>Sprint Testing</h5>
 First Run:
 Regular game: pass
 Everything works as expected. 
 
+Fixed: 
+Nokia game - Game over loop fixed
+
+Regular game - bug when the snake crashes into the border fixed but removing audio files.
+
+
 <h2>Unsovled Problems</h2>
+Nokia - Was able to get the snake to move from top to bottom and left to right without crashing into the border but the snake expands as it makes the transition from one side to the another. Same problem in all directions.
 
