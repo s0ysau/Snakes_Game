@@ -16,6 +16,7 @@ Player can use both arrow keys and WASD to move the snake around the grid
 
 I decided to go with the blue option and put the text and 'How to Play' under the stage image.
 It's much cleaner and less compacted. I also decided against a hamburger menu for now as there's isn't that much options.
+9/19/22 - Added hambuger menu for high scores and about me pages.
 
 <h2>Game board grid</h2>
 
@@ -62,9 +63,12 @@ Borderless movement works. There might be some bugs.
 
 Regular game - bug when the snake crashes into the border fixed but removing audio files.
 
-<h2>Unsovled Problems</h2>
+<h2>Unsovled Problems/Bugs</h2>
+Nokia Stage - snake cannot bite itself when the head of snake is outside the grid. 
 
 <h2>Future Features</h2>
 <ul>A stage using canvas</ul>
 <ul>A pause function</ul>
 <ul>A safe, unified way to consolidate High Scores data</ul>
+
+

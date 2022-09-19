@@ -25,7 +25,7 @@ body {
     font-family: 'Shadows Into Light Two', 'serif';
     padding: 0 0 0 20px;
     font-size: 1.2em;
-;}
+}
 
 .nokia-game {
     grid-column: 2/3;
@@ -46,7 +46,7 @@ body {
 }
 
 .back-main-menu {
-    margin-left: 45%;
+    margin: 30px 0 0 45%;
     color: white;
 }
 

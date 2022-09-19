@@ -1,3 +1,15 @@
+body {
+    background-color: sandybrown;
+    display: grid;
+    grid-template-columns: 800px 100px;
+}
+
+
 #canvas {
-    border: 5px black solid;
+    grid-column: 1/2;
+}
+
+.time{
+    grid-column: 2/3;
+    font-size: 5em;
 }

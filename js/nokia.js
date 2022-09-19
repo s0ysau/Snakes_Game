@@ -35,7 +35,7 @@ class options {
 }
 
 // const testingMode = new options (0.8, 470)
-const startMode = new options (0.95, 100)
+const startMode = new options (0.90, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -79,34 +79,8 @@ function startGame (){
     }
 }
 
-// ========= FUNCTION CODE ========= // 
-// function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
-//     let squares = document.querySelectorAll('.gameboard div')
-//     if ((snake[0] % yAxis === 0 && direction === -xAxis ) || //<-- Left
-//         (snake[0] - yAxis <= -1 && direction === -yAxis) || //<-- Top 
-//         (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) || //<-- Bottom
-//         (snake[0] % yAxis === yAxis - 1 && direction === xAxis)){ //<-- Right
-//         console.log(direction)
-//         alert('Game Over')
-//         gameOver()
-//     } else if ((squares[snake[0] + direction].classList.contains('snake'))){
-//         alert('Game Over')
-//         gameOver()
-//     } else {
-//         snakeMove(squares)
-//     }
-// }
-// ========= FUNCTION CODE ========= //
-
-
-
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    // let tail = snake.pop();
-    // squares[tail].classList.remove('snake')
-    // snake.unshift(snake[0] + direction)
-    // // eatingApple(squares, tail)
-    // squares[snake[0]].classList.add('snake')
     if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('Game Over')
         gameOver()
@@ -114,8 +88,6 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     snakeMove(squares)
     }
 }
-
-// let tail = squares[snake.length - 1]
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
@@ -129,33 +101,25 @@ function snakeMove () {
             //Left
         if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
             snake.unshift(snake[0] + 19)
-            // snake.pop()
             squares[snake.pop()].classList.remove('snake')
-            // squares[tail].classList.remove('snake')
             squares[snake[0]].classList.add('snake')
             break
         //Top 
         } else if (snake[0] - yAxis <= -1 && direction === -yAxis) {
             snake.unshift(snake[0] + 380)
-            // snake.pop()
             squares[snake.pop()].classList.remove('snake')
-            // squares[tail].classList.remove('snake')
             squares[snake[0]].classList.add('snake')
             break
         //Bottom
         } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
             snake.unshift(snake[0] - 380)
-            // snake.pop()
             squares[snake.pop()].classList.remove('snake')
-            // squares[tail].classList.remove('snake')
             squares[snake[0]].classList.add('snake')
             break
         //Right
         } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
             snake.unshift(snake[0] - 19)
-            // snake.pop()
             squares[snake.pop()].classList.remove('snake')
-            // squares[tail].classList.remove('snake')
             squares[snake[0]].classList.add('snake')
             break
         } else {
@@ -266,30 +230,3 @@ highScoreListEl.innerHTML = highScores.map(indScore => {
     return (`<li class="listing">${indScore.name} - ${indScore.score}</li>`);
     }).join("");
 }
-
-/*
-// function movingOutOfGrid (squares) {
-//     for (let i = 0; i < snake.length; i++){
-//         if (squares[snake[i]].classList.contains('snake')){
-//             // Left
-//             if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
-//                 (squares[snake[i] + 19].classList.add('snake'))
-//             //To(p 
-//             }
-//             if (snake[0] - yAxis <= -1 && direction === -yAxis) {
-//                 (squares[snake[i] + 380].classList.add('snake'))
-//             //Bottom
-//             } 
-//             if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
-//                 (squares[snake[i] - 380].classList.add('snake'))
-//             //Right
-//             } 
-//             if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
-//                 (squares[snake[i] - 19].classList.add('snake'))
-//             } else {
-//                 triggers()
-//             }
-//         }
-//     }
-//}
-*/
