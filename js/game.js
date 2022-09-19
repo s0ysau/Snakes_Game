@@ -132,6 +132,11 @@ function eatingApple (squares, tail){
             snakeSpeedtime = 30 ;
             interval = setInterval(triggers, snakeSpeedtime)
         }
+        if (score > 25) {
+            clearInterval(interval)
+            snakeSpeedtime = 15 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
     }
 }
 
