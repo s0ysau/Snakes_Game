@@ -35,7 +35,7 @@ class options {
 }
 
 // const testingMode = new options (0.8, 470)
-const startMode = new options (0.90, 100)
+const startMode = new options (0.95, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -102,7 +102,7 @@ function startGame (){
 
 function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
     let squares = document.querySelectorAll('.gameboard div')
-    let tail = snake.pop();
+    // let tail = snake.pop();
     // squares[tail].classList.remove('snake')
     // snake.unshift(snake[0] + direction)
     // // eatingApple(squares, tail)
@@ -110,47 +110,58 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
     if ((squares[snake[0] + direction].classList.contains('snake'))){
         alert('Game Over')
         gameOver()
-    } else
-        for (let i = 0; i < snake.length; i++){
-        //Left
-            if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
-                snake.unshift(snake[0] + 19)
-                squares[tail].classList.remove('snake')
-                squares[snake[0]].classList.add('snake')
-                break
-            //Top 
-            } else if (snake[0] - yAxis <= -1 && direction === -yAxis) {
-                snake.unshift(snake[0] + 380)
-                squares[tail].classList.remove('snake')
-                squares[snake[0]].classList.add('snake')
-                break
-            //Bottom
-            } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
-                snake.unshift(snake[0] - 380)
-                squares[tail].classList.remove('snake')
-                squares[snake[0]].classList.add('snake')
-                break
-            //Right
-            } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
-                snake.unshift(snake[0] - 19)
-                squares[tail].classList.remove('snake')
-                squares[snake[0]].classList.add('snake')
-                break
-            }
-
-        break
+    } else {
+    snakeMove(squares)
     }
-    snakeMove()
 }
 
+// let tail = squares[snake.length - 1]
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
-    let tail = snake.pop()
+    const tail = snake.pop()
+    // let tail = squares[snake.length - 1]
     squares[tail].classList.remove('snake')
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
     squares[snake[0]].classList.add('snake')
+    for (let i = 0; i < snake.length; i++){
+            //Left
+        if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
+            snake.unshift(snake[0] + 19)
+            // snake.pop()
+            squares[snake.pop()].classList.remove('snake')
+            // squares[tail].classList.remove('snake')
+            squares[snake[0]].classList.add('snake')
+            break
+        //Top 
+        } else if (snake[0] - yAxis <= -1 && direction === -yAxis) {
+            snake.unshift(snake[0] + 380)
+            // snake.pop()
+            squares[snake.pop()].classList.remove('snake')
+            // squares[tail].classList.remove('snake')
+            squares[snake[0]].classList.add('snake')
+            break
+        //Bottom
+        } else if (snake[0] + yAxis >= yAxis * yAxis && direction === yAxis) {
+            snake.unshift(snake[0] - 380)
+            // snake.pop()
+            squares[snake.pop()].classList.remove('snake')
+            // squares[tail].classList.remove('snake')
+            squares[snake[0]].classList.add('snake')
+            break
+        //Right
+        } else if (snake[0] % yAxis === yAxis - 1 && direction === xAxis){ 
+            snake.unshift(snake[0] - 19)
+            // snake.pop()
+            squares[snake.pop()].classList.remove('snake')
+            // squares[tail].classList.remove('snake')
+            squares[snake[0]].classList.add('snake')
+            break
+        } else {
+            break
+        }
+    }
 }
 
 function eatingApple (squares, tail){
