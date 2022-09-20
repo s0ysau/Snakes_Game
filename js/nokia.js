@@ -34,8 +34,6 @@ class options {
     }
 }
 
-// const testingMode = new options (0.8, 470)
-const startMode = new options (0.80, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position
@@ -73,7 +71,7 @@ function startGame (){
     snake = [382, 381, 380]; 
     snake.forEach((index) => squares[index].classList.add('snake'))
     if (playing){
-    snakeSpeedtime = startMode.snakeSpeedtime
+    snakeSpeedtime = 90
     interval = setInterval(triggers, snakeSpeedtime)
     console.log(interval)
     }
@@ -92,7 +90,6 @@ function triggers () { //<--- While the snake moves, checks if it triggers lose 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
     const tail = snake.pop()
-    // let tail = squares[snake.length - 1]
     squares[tail].classList.remove('snake')
     snake.unshift(snake[0] + direction)
     eatingApple(squares, tail)
@@ -137,10 +134,36 @@ function eatingApple (squares, tail){
         score += 7
         scoreBoard.innerHTML = `<h2 class="scoreNm">${score}</h2>`;
         // <= increase speed for every apple eaten => //
-        clearInterval(interval)
-        snakeSpeedtime = snakeSpeedtime * startMode.increaseSpeed ;
-        interval = setInterval(triggers, snakeSpeedtime)
-        console.log(interval)
+        if (score > 14){
+            clearInterval(interval)
+            snakeSpeedtime = 80 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        } 
+        if (score > 35) {
+            clearInterval(interval)
+            snakeSpeedtime = 70 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        } 
+        if (score > 70) {
+            clearInterval(interval)
+            snakeSpeedtime = 60 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
+        if (score > 105) {
+            clearInterval(interval)
+            snakeSpeedtime = 50 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
+        if (score > 140) {
+            clearInterval(interval)
+            snakeSpeedtime = 30 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
+        if (score > 175) {
+            clearInterval(interval)
+            snakeSpeedtime = 15 ;
+            interval = setInterval(triggers, snakeSpeedtime)
+        }
     }
 }
 
