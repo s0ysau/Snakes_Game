@@ -35,7 +35,7 @@ class options {
 }
 
 // const testingMode = new options (0.8, 470)
-const startMode = new options (0.90, 100)
+const startMode = new options (0.80, 100)
 
 let appleIndex = 0; // <--- position of the apple
 let snake = [2, 1, 0]; //<--- initial snake position

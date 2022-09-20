@@ -1,8 +1,6 @@
 // ===== Global Variables ===== //
 const scoreBoard = document.querySelector('.scoreboard')
 const gameBoard = document.querySelector('.gameboard')
-
-const tailLook = document.querySelector('.tail')
 const gameScreen = document.getElementById('game-screen')
 const gulp = new Audio('Sounds/gulp.mp3')
 const bumponwall = new Audio ('Sounds/wall-bump.mp3')
@@ -197,6 +195,7 @@ function replay (){
     popUp.style.display = 'none'
 }
 
+// == Buttons and KeyStrokes == //
 
 //=== High Score Section === //
 
@@ -227,17 +226,5 @@ function checkHighScore (score) {
 }
 
 
+//=== High Score Section === //
 
-
-// <<< On-Screen Buttons >>> //
-// up.addEventListener("click", () => (direction = -yAxis));
-// bottom.addEventListener("click", () => (direction = +yAxis));
-// left.addEventListener("click", () => (direction = -1));
-// right.addEventListener("click", () => (direction = 1));
-
-// == Buttons == //
-// const up = document.getElementById('top')
-// const down = document.getElementById('bottom')
-// const right = document.getElementById('right')
-// const left = document.getElementById('left')
-// == Buttons == //

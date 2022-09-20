@@ -59,3 +59,18 @@ Code that allows the snake to move from outside the border to the other side.
         snakeMove(squares)
     }
 }
+
+
+The code below is for on-screen buttons 
+// <<< On-Screen Buttons >>> //
+// up.addEventListener("click", () => (direction = -yAxis));
+// bottom.addEventListener("click", () => (direction = +yAxis));
+// left.addEventListener("click", () => (direction = -1));
+// right.addEventListener("click", () => (direction = 1));
+
+// == Buttons == //
+// const up = document.getElementById('top')
+// const down = document.getElementById('bottom')
+// const right = document.getElementById('right')
+// const left = document.getElementById('left')
+// == Buttons == //
