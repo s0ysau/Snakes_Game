@@ -1,0 +1,23 @@
+{
+  "name": "snakes",
+  "version": "1.0.0",
+  "description": "Snakes: the game",
+  "main": "main_menu.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s0ysau/Snakes_Game.git"
+  },
+  "author": "Jerrick LC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s0ysau/Snakes_Game/issues"
+  },
+  "homepage": "https://github.com/s0ysau/Snakes_Game#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
