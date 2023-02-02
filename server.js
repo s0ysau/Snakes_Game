@@ -6,12 +6,12 @@ const PORT = process.env.PORT || 8080
 
 const app = express()
 
-app.use(express.static(path.join(__dirname)))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-
-app.use("/main_menu.html", express.static(__dirname + '/main_menu/main_menu.html'))
-
-
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname + 'main_menu/main_menu.html'))
+})
 
 app.listen(PORT, () => {
   console.log(`Looking for snakes in ${PORT}`)
