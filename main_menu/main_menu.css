@@ -108,6 +108,8 @@ body {
     grid-row: 1/2;
     font-size: 4em;
     margin: 10px 0;
+    /* minimum width - 500px*/
+    /* minimum width before sun - 980px*/
 }
 
 .middle {

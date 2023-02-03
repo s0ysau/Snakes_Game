@@ -56,7 +56,9 @@ There are two local storages: one on the GitHub Pages and one on the local HTML.
 
 Below is the preliminary list of high scores as a baseline to establisha a list in which the code can call on and manipulate. 
 
- [{"name":"Placeholder","score":10},{"name":"Placeholder","score":9},{"name":"Placeholder","score":8},{"name":"Placeholder","score":7},{"name":"Placeholder","score":6},{"name":"Placeholder","score":5},{"name":"Placeholder","score":4},{"name":"Placeholder","score":3},{"name":"Placeholder","score":2},{"name":"Placeholder","score":1}]
+```javascript
+[{"name":"Placeholder","score":10},{"name":"Placeholder","score":9},{"name":"Placeholder","score":8},{"name":"Placeholder","score":7},{"name":"Placeholder","score":6},{"name":"Placeholder","score":5},{"name":"Placeholder","score":4},{"name":"Placeholder","score":3},{"name":"Placeholder","score":2},{"name":"Placeholder","score":1}]
+ ```
 
 2. Once the game is over, the function checkHighScore checks whether the player's score is greater than at least the lowest high score by grabbing the data via key, and if this is true. The high score screen pops up to give the player the opportunity to add their name with their score into an object. 
 
@@ -91,17 +93,20 @@ Fonts are not showing up on the GitHub pages.
 <p> The code below allows the snake to go past the border and arrive in the opposite side. The outter grid is (0-19)TOP ; (19-399)RIGHT ; (380-399)BOTTOM ; (0-380)LEFT. When the snake is along these lines, when the head or snake.index moves out of the grid, a set number is either added or substracted).
 From left to right, the width is 19 and from the top to bottom, the width is 380</p>
 
-```for (let i = 0; i < snake.length; i++){
+```javascript
+for (let i = 0; i < snake.length; i++){
         //Left
     if (snake[0] % yAxis === 0 && direction === -xAxis ) { 
         snake.unshift(snake[0] + 19)
         squares[snake.pop()].classList.remove('snake')
         squares[snake[0]].classList.add('snake')
         break
+```
 
 If statement check if the snake is on the left most column and if the direction is going left. 
 When that condition meets. The head of the snake or snake.index will add 19 to appear on the right side and will remove the tail or the last index of snake.index.
 
+```javascript
     //Top 
     } else if (snake[0] - yAxis <= -1 && direction === -yAxis) {
         snake.unshift(snake[0] + 380)
@@ -122,5 +127,6 @@ When that condition meets. The head of the snake or snake.index will add 19 to a
         break
     } else {
         break
-    }```
+    }
+```
 
