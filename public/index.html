@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../main_menu/main_menu.css">
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
-    <title>Snakes! - Main Menu</title>
-</head>
-    <script defer src="../main_menu/main_menu.js"></script>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Snakes! The Game</title>
+  </head>
+  <body>
+    <!-- <div id="root"></div> -->
     <input type="checkbox" class="navi-checkbox" id="nav-check">
     <label for="nav-check" class="sun-menu">
         <span>&nbsp;</span>
@@ -29,8 +39,8 @@
                     <h1 class="pickStage">Pick A Stage</h1>
                     <button class="previous buttons">Previous</button>
                     <div class="carousel-images">
-                        <img src="../public/images/regular_snake.png" alt="regular game image" class="image regular-game">
-                        <img src="../public/images/snake_nokia_game.jpeg" alt="nokia game" class="image nokia-game">
+                        <img src="../images/regular_snake.png" alt="regular game image" class="image regular-game">
+                        <img src="../images/nokia_snake.png" alt="nokia game" class="image nokia-game">
                     </div>
                     <button class="next buttons">Next</button>
                     <div class="description">
@@ -46,5 +56,6 @@
             </div> 
         </div>
     </section>
-</body>
+</body>  
+
 </html>

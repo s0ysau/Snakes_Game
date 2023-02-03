@@ -22,7 +22,7 @@ const openMainMenu = () => {
 
 startGameBtn.addEventListener('click', () => {   
     if (images[currentStage].classList.contains('regular-game')){
-        window.location.href = '../first_game/index.html'
+        window.location.href = '../first_game/game.html'
     } else if (images[currentStage].classList.contains('nokia-game')){
         window.location.href = '../nokia/nokia.html'
     }
