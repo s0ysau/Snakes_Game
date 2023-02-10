@@ -5,12 +5,10 @@ const path = require('path')
 
 const PORT = process.env.PORT || 8123
 
-// const app = express()
+const app = express()
 
-// app.use(express.static(path.join(__direname)));
-
-// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico' )))
-// app.use(express.static(path.join(__dirname, 'build')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico' )))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
