@@ -1,22 +1,21 @@
-// require('dotenv').config()
-// const express = require('express')
-// const path = require('path')
+require('dotenv').config()
+const express = require('express')
+const favicon = require('serve-favicon')
+const path = require('path')
 
-// const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8123
 
 // const app = express()
 
 // app.use(express.static(path.join(__direname)));
 
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico' )))
+// app.use(express.static(path.join(__dirname, 'build')))
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__filename + '/main_menu/main_menu.html'))
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
-// app.get('/first_game', express.static(__dirname + '/first_game/index.html'))
-
-// app.get('/nokia', express.static(__dirname + '/nokia.nokia.html'))
-
-// app.listen(PORT, () => {
-//   console.log(`Looking for snakes in ${PORT}`)
-// })
+app.listen(PORT, () => {
+  console.log(`Looking for snakes in ${PORT}`)
+})
