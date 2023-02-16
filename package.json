@@ -2,7 +2,7 @@
   "name": "snakes",
   "version": "1.0.0",
   "description": "Snakes: the game",
-  "main": "main_menu.html",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
@@ -17,11 +17,11 @@
   "bugs": {
     "url": "https://github.com/s0ysau/Snakes_Game/issues"
   },
-  "homepage": "https://github.com/s0ysau/Snakes_Game#readme",
+  "homepage": "https://github.com/s0ysau/Snakes_Game/main_menu/main_menu.html",
   "dependencies": {
-    "build": "^0.1.4",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "react": "^18.2.0",
     "serve-favicon": "^2.5.0"
   }
 }
