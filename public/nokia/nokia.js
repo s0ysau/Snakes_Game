@@ -77,15 +77,6 @@ function startGame (){
     }
 }
 
-function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
-    let squares = document.querySelectorAll('.gameboard div')
-    if ((squares[snake[0] + direction].classList.contains('snake'))){
-        alert('Game Over')
-        gameOver()
-    } else {
-    snakeMove(squares)
-    }
-}
 
 function snakeMove () {
     let squares = document.querySelectorAll('.gameboard div')
@@ -122,6 +113,16 @@ function snakeMove () {
         } else {
             break
         }
+    }
+}
+
+function triggers () { //<--- While the snake moves, checks if it triggers lose conditions
+    let squares = document.querySelectorAll('.gameboard div')
+    if ((squares[snake[0] + direction].classList.contains('snake'))){
+        alert('Game Over')
+        gameOver()
+    } else {
+    snakeMove(squares)
     }
 }
 
