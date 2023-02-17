@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8123
 
 const app = express()
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico' )))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('*', (req, res) => {

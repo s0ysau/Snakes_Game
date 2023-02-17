@@ -3,7 +3,7 @@
 
 body {
     background: rgb(228, 250, 254);
-    background-image: url('../public/images/jungle_background.jpeg');
+    background-image: url('../images/jungle_background.jpeg');
     background-size: cover;
     height: 100vh;
     width: 100vw;

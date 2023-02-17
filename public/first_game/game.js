@@ -2,8 +2,8 @@
 const scoreBoard = document.querySelector('.scoreboard')
 const gameBoard = document.querySelector('.gameboard')
 const gameScreen = document.getElementById('game-screen')
-const gulp = new Audio('../public/Sounds/gulp.mp3')
-const bumponwall = new Audio('../public/Sounds/wall-bump.mp3')
+const gulp = new Audio('../Sounds/gulp.mp3')
+const bumponwall = new Audio('../Sounds/wall-bump.mp3')
 // == Game Over Variables == //
 const popUp = document.querySelector('.popup')
 const game_over_text = document.querySelector('.game_over_text')

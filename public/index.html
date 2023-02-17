@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+	<head>
     <meta charset="utf-8" />
-    
     <link rel="icon" href="../public/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -12,11 +11,11 @@
     />
     <link rel="apple-touch-icon" href="../public/logo192.png" />
     <link rel="manifest" href="../public/manifest.json" />
-		<link rel="stylesheet" href="../public/main_menu.css">
+		<link rel="stylesheet" href="main_menu.css">
     <title>Snakes! The Game</title>
+    <script defer src="main_menu.js"></script>
   </head>
-    <script defer src="../public/main_menu.js"></script>
-    <body>
+  <body>
     <!-- <div id="root"></div> -->
     <input type="checkbox" class="navi-checkbox" id="nav-check">
     <label for="nav-check" class="sun-menu">
@@ -25,7 +24,7 @@
     <div class="sun-background"></div>
     <nav>
         <ul>
-            <a href="../high_scores/HighScore.html" class="high-score-page page"><li>High Scores</li></a>
+            <a href="/high_scores/HighScore.html" class="high-score-page page"><li>High Scores</li></a>
             <a href="../about_me/AboutMe.html" class="about-me page"><li>About Me</li></a>
         </ul>
     </nav>
@@ -37,8 +36,8 @@
                     <h1 class="pickStage">Pick A Stage</h1>
                     <button class="previous buttons">Previous</button>
                     <div class="carousel-images">
-                        <img src="../public/images/regular_snake.png" alt="regular game image" class="image regular-game">
-                        <img src="../public/images/nokia_snake.png" alt="nokia game" class="image nokia-game">
+                        <img src="images/regular_snake.png" alt="regular game image" class="image regular-game">
+                        <img src="images/nokia_snake.png" alt="nokia game" class="image nokia-game">
                     </div>
                     <button class="next buttons">Next</button>
                     <div class="description">
@@ -54,6 +53,5 @@
             </div> 
         </div>
     </section>
-</body>  
-
+	</body>  
 </html>
