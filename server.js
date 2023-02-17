@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname)))
 
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico' )))
 app.use(express.static(path.join(__dirname, 'build')))
+<<<<<<< HEAD
+>>>>>>> parent of 769baa2 (works on local)
+=======
 >>>>>>> parent of 769baa2 (works on local)
 
 app.get('*', (req, res) => {
