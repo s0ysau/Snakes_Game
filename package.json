@@ -27,12 +27,18 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.9.1",
+<<<<<<< HEAD
     "nodemon": "^2.0.20",
+=======
+>>>>>>> a0c32fbd066999daa5783fcc6feb03549daedc7b
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
+<<<<<<< HEAD
     "sass": "^1.58.2",
+=======
+>>>>>>> a0c32fbd066999daa5783fcc6feb03549daedc7b
     "serve-favicon": "^2.5.0"
   },
   "browserslist": {
