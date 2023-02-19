@@ -1,7 +1,9 @@
 require('dotenv').config()
+require('./config/database')
 const express = require('express')
 const favicon = require('serve-favicon')
 const path = require('path')
+// const db = require('./config/database')
 
 const PORT = process.env.PORT || 8123
 
