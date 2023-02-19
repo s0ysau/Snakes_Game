@@ -14,8 +14,9 @@ Player can use both arrow keys and WASD to move the snake around the grid
 ![Page1](https://user-images.githubusercontent.com/105724406/190867832-c04370f0-d988-46be-989d-71795a08a186.jpg)
 ![Page2](https://user-images.githubusercontent.com/105724406/190867833-ed47d1a9-965d-486f-bf99-cd4513c505f4.jpg)
 
-I decided to go with the blue fonted option and put the text and 'How to Play' under the stage image.
-It's much cleaner and less compacted. Added hambuger menu for high scores and about me pages, made it look like the sun.
+I decided to go with the blue font option and put the text and 'How to Play' under the stage image.
+It's much cleaner and less compacted. I also decided against a hamburger menu for now as there's isn't that much options.
+9/19/22 - Added hambuger menu for high scores and about me pages.
 
 <h2>Game board grid</h2>
 
@@ -67,15 +68,16 @@ Below is the preliminary list of high scores as a baseline to establisha a list 
 
 
 <h2>Unsovled Problems/Bugs</h2>
-Nokia Stage - </br>
-1. snake cannot bite itself when the head of snake is outside the grid. </br>
-2. When snake moves parallel to the edge of the board and turns to the outer, the game crashes
+Nokia Stage: 
+1. snake cannot bite itself when the head of snake is outside the grid. 
+2. app crashes when snake is parallel to the edge then attemptes to move out of the grid. 
 
 
-<h2>Future Features</h2>
+<h2>Ice box Features</h2>
 <ul>A stage using canvas</ul>
 <ul>A pause function</ul>
 <ul>A safe, unified way to consolidate High Scores data</ul>
+<ul>Mobile friendly, swipe features</ul>
 
 
 <h3>Nokia movement</h3>

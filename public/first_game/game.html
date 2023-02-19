@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../first_game/game.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <title>Snakes!</title>
+</head>
+    <script defer src="../first_game/game.js"></script>
+<body>
+    <div id="game-screen">
+        <h1 class="headline">S<br/>N<br/>A<br/>K<br/>E<br/>S<br/></h1>
+        <div class="gameboard"></div>
+        <section class="display">
+            <div class="scoreboard"></div>
+            <div class="high_score_section"> 
+            </div>
+        </section>
+    </div>
+    <div class="popup">
+        <h1 class="game_over_text"></h1>
+        <h2 class="finalScore"></h2>
+        <section class="high_score_menu">
+            <h2 class="hsMessage">You made it onto the High Scores List, Enter your name</h2>
+            <input type="text" id="playerName" name="playerName"  minlength="3" maxlength="12" placeholder="Enter your name">
+            <button class="submitHS buttons">Submit</button>
+            <div class="container">
+                <div class="high_score_section">
+                    <h2>High Scores:</h2>
+                        <ol class="high_score_list"> </ol>
+                </div>
+            </div>
+        </section>
+        <button class="playAgain">Play Again</button>
+        <a href="../index.html" class="back-main-menu">Return to Main Menu</a>
+    </div>
+</body>
+</html>
