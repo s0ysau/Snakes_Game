@@ -187,7 +187,7 @@ body {
     grid-column: 2/3;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 965px) {
     body {
         background-size: cover;
         height: 100vh;
