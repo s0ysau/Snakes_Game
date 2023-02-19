@@ -272,3 +272,62 @@ body {
         display: block;
     }
 }
+
+@media screen and (max-width: 412px) {
+    body {
+        background: olivedrab;
+        background-image: none;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .headline {
+			font-size: 20px;
+    }
+
+    .pickStage {
+			font-size: 15px;
+    }
+
+		.middle {
+			display: block;
+		} 
+
+    .container {
+			display: flex;	
+			flex-direction: column;
+			background-color: rgba(255, 255, 255, 0.5);
+			place-items: center;
+    }
+
+    .previous,
+    .next {
+			margin-top: 0;
+			width: 35px;
+			height: 38px;
+			padding: 0;
+    }
+
+		/* .carousel-images {
+	} */
+	
+	.carousel-images img {
+		display: none;
+		width: 200px;
+		height: 200px;
+		border-radius: 10px;
+		align-self: center;
+		box-shadow: 5px 5px 30px 10px;
+	}
+	
+	.carousel-images img:first-of-type {
+
+		box-shadow: 5px 5px 30px 10px;
+	}
+
+	.game-title{
+		font-size: 15px;
+	}
+}
