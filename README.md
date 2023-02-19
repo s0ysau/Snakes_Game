@@ -14,7 +14,7 @@ Player can use both arrow keys and WASD to move the snake around the grid
 ![Page1](https://user-images.githubusercontent.com/105724406/190867832-c04370f0-d988-46be-989d-71795a08a186.jpg)
 ![Page2](https://user-images.githubusercontent.com/105724406/190867833-ed47d1a9-965d-486f-bf99-cd4513c505f4.jpg)
 
-I decided to go with the blue option and put the text and 'How to Play' under the stage image.
+I decided to go with the blue font option and put the text and 'How to Play' under the stage image.
 It's much cleaner and less compacted. I also decided against a hamburger menu for now as there's isn't that much options.
 9/19/22 - Added hambuger menu for high scores and about me pages.
 
@@ -66,27 +66,18 @@ Below is the preliminary list of high scores as a baseline to establisha a list 
 
 4. The newly revised list is than added to the locale storage and becomes the new data stored.
 
-<h5>Sprint Testing</h5>
-First Run:
-Regular game: pass
-Everything works as expected. 
-
-Fixed: 
-Nokia game - Game over loop fixed
-Borderless movement works. There might be some bugs.
-
-Regular game - bug when the snake crashes into the border fixed but removing audio files.
-
 
 <h2>Unsovled Problems/Bugs</h2>
-Nokia Stage - snake cannot bite itself when the head of snake is outside the grid. 
+Nokia Stage: 
+1. snake cannot bite itself when the head of snake is outside the grid. 
+2. app crashes when snake is parallel to the edge then attemptes to move out of the grid. 
 
-Fonts are not showing up on the GitHub pages.
 
-<h2>Future Features</h2>
+<h2>Ice box Features</h2>
 <ul>A stage using canvas</ul>
 <ul>A pause function</ul>
 <ul>A safe, unified way to consolidate High Scores data</ul>
+<ul>Mobile friendly, swipe features</ul>
 
 
 <h3>Nokia movement</h3>
